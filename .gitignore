@@ -16,9 +16,9 @@ media
 
 # Static files
 assets/node_modules
-#assets/bundles
-assets/bundles/webpack-bundle.dev.json
-assets/bundles/dev
+assets/bundles
+# assets/bundles/webpack-bundle.dev.json
+# assets/bundles/dev
 
 # IDE config
 .vscode
