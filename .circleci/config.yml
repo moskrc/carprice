@@ -39,7 +39,7 @@ jobs:
           destination: tr1
   deploy-job:
     docker:
-      - image: circleci/python:3.8.2
+      - image: circleci/node:13.8
     working_directory: ~/app
     steps:
       - add_ssh_keys:
@@ -55,6 +55,18 @@ jobs:
             StrictHostKeyChecking no
             UserKnownHostsFile /dev/null
             EOF
+      - run:
+          name: Build buncled
+          command: |
+            cd assets
+            npm install
+            npm run build
+
+      - run:
+          name: Deploy bundles
+          command: |
+            scp -r assets/bundles moskrc@moskrc.myjino.ru:projects/carprice/assets
+
       - run:
           name: Deploy via SSH
           command: |
