@@ -1,0 +1,11 @@
+{% load wagtailcore_tags %}
+
+<p class="button-block">
+  {% if value.page_link %}
+    <a href="{% pageurl value.page_link %}">
+  {% else %}
+    <a href="{{ value.external_link }}" target="_blank" rel="nofollow">
+  {% endif %}
+  {{ value.text }}
+  </a>
+</p>

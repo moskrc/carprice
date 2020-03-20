@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% load static %}
+{% load wagtailimages_tags %}
+{% load wagtailcore_tags %} 
+
+{% block body_class %}template-homepage{% endblock %}
+
+{% block content %}
+{{page.title}}
+<p>
+телефон
+{{settings.core.SiteSettings.phone|default:'-'}}
+</p>
+<p>
+время работы {{settings.core.SiteSettings.work_time|default:'-'}}
+</p>
+<p>
+{% image settings.core.SiteSettings.logo fill-80x80 as tmp_logo %}
+лого 
+<img src="{{ tmp_logo.url }}" width="{{ tmp_logo.width }}"
+    height="{{ tmp_logo.height }}" alt="{{ tmp_logo.alt }}" class="my-custom-class" />
+
+
+</p>
+<p>
+слоган верх {{settings.core.SiteSettings.slogan_top|default:'-'}}
+</p>
+<p>
+слоган низ {{settings.core.SiteSettings.slogan_bottom|default:'-'}}
+</p>
+
+<p>a super site will be here</p>
+
+<hr/>
+
+{% include_block page.body  %}
+{% endblock content %}

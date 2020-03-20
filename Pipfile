@@ -1,0 +1,26 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[packages]
+wagtail = "*"
+django-environ = "*"
+django-webpack-loader = "*"
+psycopg2 = "*"
+
+[requires]
+python_version = "3.8.2"
+
+[scripts]
+makemigrations = "python manage.py makemigrations"
+migrate = "python manage.py migrate"
+runserver = "python manage.py runserver"
+createsuperuser = "python manage.py createsuperuser"
+
+[dev-packages]
+black = "*"
+fabric = "*"
+
+[pipenv]
+allow_prereleases = true

@@ -1,0 +1,14 @@
+{% load static %}
+{% load wagtailcore_tags %} 
+{% load wagtailimages_tags %}
+
+<div class="block-features">
+    <h1>{{self.title}}</h1>
+
+    {% for c in self.features %}
+        <p>{{c.title}}</p>
+        {% image c.image fill-80x80 as car_pic %}
+            <img src="{{ car_pic.url }}" width="{{ car_pic.width }}" height="{{ car_pic.height }}" alt="{{ car_pic.alt }}" class="my-custom-class" />    
+        <p>{{c.text}}</p>
+    {% endfor %}
+</div>

@@ -1,0 +1,81 @@
+version: 2
+jobs:
+  build-job:
+    docker:
+      - image: circleci/python:3.8.2
+        environment:
+          PIPENV_VENV_IN_PROJECT: true
+    environment:
+      DATABASE_URL: sqlite:///db.sqlite3
+      DJANGO_SECRET_KEY: test
+      DJANGO_READ_DOT_ENV_FILE: True
+      DJANGO_SETTINGS_MODULE: conf.settings
+    working_directory: ~/app
+    steps:
+      - checkout
+      - run: sudo chown -R circleci:circleci /usr/local/bin
+      - run: sudo chown -R circleci:circleci /usr/local/lib/python3.8/site-packages      
+      - restore_cache:
+          key: deps9-{{ .Branch }}-{{ checksum "Pipfile.lock" }}
+      - run:
+          name: Install Python dependencies
+          command: |
+            sudo pip install pipenv
+            pipenv install
+      - save_cache:
+          key: deps9-{{ .Branch }}-{{ checksum "Pipfile.lock" }}
+          paths:
+            - ".venv"
+            - "/usr/local/bin"
+            - "/usr/local/lib/python3.8/site-packages"
+      - run:
+          name: Run tests
+          command: |
+            pipenv run python manage.py test
+      - store_test_results:
+          path: test-results
+      - store_artifacts:
+          path: test-results
+          destination: tr1
+  deploy-job:
+    docker:
+      - image: circleci/python:3.8.2
+    working_directory: ~/app
+    steps:
+      - add_ssh_keys:
+          fingerprints:
+            - "ce:7a:e4:2f:be:b4:32:85:0b:ea:39:9a:9b:e0:5b:08"
+      - checkout
+      - run:
+          name: Prepare SSH
+          command: |
+            touch ~/.ssh/config
+            cat <<EOF >> ~/.ssh/config
+            Host *
+            StrictHostKeyChecking no
+            UserKnownHostsFile /dev/null
+            EOF
+      - run:
+          name: Deploy via SSH
+          command: |
+            ssh moskrc@moskrc.myjino.ru "bash -s" <  .circleci/deploy.sh
+
+
+workflows:
+  version: 2
+  build-deploy:
+    jobs:
+      - build-job:
+          filters:
+            branches:
+              only:
+                - develop
+                - master
+      - deploy-job:
+          requires:
+            - build-job
+          filters:
+            branches:
+              only:
+                - develop
+                - master
