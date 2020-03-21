@@ -18,4 +18,10 @@ pipenv run migrate
 pipenv run createsuperuser
 # Запуск
 pipenv run runserver
+
+
+# В отдельно вкладке запустить webpack
+cd assets
+npm install
+npm run dev
 ```
