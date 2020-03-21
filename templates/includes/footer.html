@@ -1,0 +1,30 @@
+{#<footer class="navbar">#}
+{#	<div class="container">#}
+{#		<a class="navbar-brand" href="#">#}
+{#			<img src="/docs/4.0/assets/brand/bootstrap-solid.svg" width="30" height="30" class="d-inline-block align-top" alt="">#}
+{#			Bootstrap#}
+{#		</a>#}
+
+{#		<h4>{{settings.core.SiteSettings.slogan_bottom|default:'-'}}</h4>#}
+
+{#		<p><span>© 2020 Все права защены</span></p>#}
+{#	</div>#}
+{#</footer>#}
+
+
+
+<footer class="navbar bg-white">
+	<div class="container">
+		<div class="navbar-site-logo">
+			<a class="navbar-brand" href="#">
+				<img src="/docs/4.0/assets/brand/bootstrap-solid.svg" width="30" alt="">
+			</a>
+
+			{% if settings.core.SiteSettings.slogan_top %}
+				<h2 class="slogan">{{ settings.core.SiteSettings.slogan_bottom }}</h2>
+			{% endif %}
+		</div>
+
+		<span class="navbar-copyright">© 2020 Все права защены</span>
+	</div>
+</footer>

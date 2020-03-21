@@ -1,0 +1,34 @@
+
+.block-features {
+	&__header {
+		color: $colorGreyDefault;
+		font-size: 3.25rem;
+		font-family: 'Muller Bold', sans-serif;
+		text-align: center;
+	}
+	&-list {
+		justify-content: space-between;
+		&__item {
+			text-align: center;
+
+			& img {
+				width: 6rem;
+				height: auto;
+			}
+			& .title {
+				font-family: 'Muller Bold', sans-serif;
+				color: $colorGreenDefault;
+				font-size: 1.5rem;
+				line-height: 1.625rem;
+				margin-top: 2rem;
+				margin-bottom: 0.75rem;
+			}
+			& .description {
+				font-size: 1.125rem;
+				line-height: 1.5rem;
+				font-family: 'Muller Regular', sans-serif;
+				color: $colorGreyDefault;
+			}
+		}
+	}
+}

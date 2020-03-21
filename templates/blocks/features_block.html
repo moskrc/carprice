@@ -1,14 +1,32 @@
 {% load static %}
-{% load wagtailcore_tags %} 
+{% load wagtailcore_tags %}
 {% load wagtailimages_tags %}
 
-<div class="block-features">
-    <h1>{{self.title}}</h1>
+{#<div class="block-features">#}
+{#    <h1>{{self.title}}</h1>#}
 
-    {% for c in self.features %}
-        <p>{{c.title}}</p>
-        {% image c.image fill-80x80 as car_pic %}
-            <img src="{{ car_pic.url }}" width="{{ car_pic.width }}" height="{{ car_pic.height }}" alt="{{ car_pic.alt }}" class="my-custom-class" />    
-        <p>{{c.text}}</p>
-    {% endfor %}
+{#    {% for c in self.features %}#}
+{#        <p>{{c.title}}</p>#}
+{#        {% image c.image fill-80x80 as car_pic %}#}
+{#            <img src="{{ car_pic.url }}" width="{{ car_pic.width }}" height="{{ car_pic.height }}" alt="{{ car_pic.alt }}" class="my-custom-class" />#}
+{#        <p>{{c.text}}</p>#}
+{#    {% endfor %}#}
+{#</div>#}
+
+<div class="container">
+	<div class="block-features">
+		<h2 class="block-features__header mb-5">{{self.title}}</h2>
+
+		<div class="row block-features-list">
+			{% for c in self.features %}
+				<div class="col-12 col-md block-features-list__item">
+					{% image c.image fill-80x80 as car_pic %}
+					<img src="{{ car_pic.url }}" width="{{ car_pic.width }}" height="{{ car_pic.height }}" alt="{{ car_pic.alt }}"/>
+
+					<h3 class="title">{{c.title}}</h3>
+					<p class="description">{{c.text}}</p>
+				</div>
+			{% endfor %}
+		</div>
+	</div>
 </div>

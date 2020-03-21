@@ -85,7 +85,8 @@ module.exports = (env, argv) => {
 					test: /\.(eot|otf|ttf|woff|woff2)(\?v=[0-9.]+)?$/,
 					loader: "file-loader",
 					options: {
-						outputPath: "fonts"
+						outputPath: "fonts",
+						name: `[name].[ext]`
 					}
 				},
 				// Images
@@ -98,7 +99,15 @@ module.exports = (env, argv) => {
 				}
 			]
 		},
-		plugins: [bundleTrackerPlugin, extractCssPlugin],
+		plugins: [
+			bundleTrackerPlugin,
+			extractCssPlugin,
+			new webpack.ProvidePlugin({
+				$: "jquery",
+				jQuery: "jquery",
+				"window.jQuery": "jquery"
+			})
+		],
 		devtool: "source-map"
 	};
 };

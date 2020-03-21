@@ -1,0 +1,40 @@
+
+.block-steps {
+	&-wrapper {
+		margin-bottom: 5rem;
+	}
+	&__header {
+		color: $colorGreyDark;
+		font-size: 3.25rem;
+		font-family: 'Roboto Bold', sans-serif;
+		text-align: center;
+	}
+	&-list {
+		//display: flex;
+		justify-content: space-between;
+		&__item {
+			max-width: 350px;
+			& .number {
+				font-family: 'Roboto Bold', sans-serif;
+				color: $colorGreenDefault;
+				font-size: 7rem;
+				font-weight: bold;
+				letter-spacing: 3px;
+			}
+			& .title {
+				font-family: 'Muller Bold', sans-serif;
+				color: $colorGreenDefault;
+				font-size: 1.5rem;
+				line-height: 1.625rem;
+				margin-top: 0.625rem;
+				margin-bottom: 0.75rem;
+			}
+			& .description {
+				font-size: 1.125rem;
+				line-height: 1.5rem;
+				color: $colorGreyDark;
+				font-family: 'Muller Regular', sans-serif;
+			}
+		}
+	}
+}

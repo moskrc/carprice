@@ -1,0 +1,74 @@
+
+.block-check-price {
+	background: rgba(0, 0, 0, 0.53);
+	position: absolute;
+	left: 0;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	&-wrapper {
+		min-height: 30rem;
+		background-image: url("/static/img/pictures/bg-car.png");
+		background-repeat: no-repeat;
+		background-position: center;
+		background-size: cover;
+
+		position: relative;
+	}
+
+
+	&__title {
+		font-family: "Muller Regular", sans-serif;
+		h3 {
+			color: white;
+			font-size: 3rem;
+			text-align: center;
+			font-weight: normal;
+			margin-bottom: 3rem;
+		}
+	}
+}
+
+
+
+.form-check-price {
+	display: flex;
+	overflow: hidden;
+	border-radius: 10rem;
+	& .form-group {
+		margin: 0;
+		position: relative;
+		&:after {
+			content: "";
+			height: 2.75rem;
+			border-left: 1px solid $colorGreenDefault;
+			position: absolute;
+			left: 0;
+			top: 0.5rem;
+		}
+		&:first-child {
+			&:after {
+				border-left: unset;
+			}
+		}
+		& .form-control {
+			border: none;
+			border-radius: 0;
+			padding: 1.5rem 2rem 1.25rem;
+			font-family: "Muller Regular", sans-serif;
+			box-sizing: border-box;
+			height: 100%;
+		}
+	}
+	& .btn-primary {
+		border: none;
+		border-radius: 0;
+		padding: 1rem 2rem 0.75rem;
+		font-family: "Muller Regular", sans-serif;
+		box-sizing: content-box;
+	}
+}

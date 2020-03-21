@@ -6,3 +6,31 @@
 // Custom
 @import "structure";
 @import "typography";
+@import "fonts";
+
+
+
+@import "blocks/blocks";
+@import "page/page";
+
+
+//Custom size of container
+@media (min-width: 1600px) {
+	.container, .container-lg, .container-md, .container-sm, .container-xl {
+		max-width: 1520px;
+	}
+}
+
+
+.col-p-small {
+	padding: 0 0.5rem;
+}
+
+.btn-primary {
+	background: $colorBlueDefault !important;
+}
+
+
+
+
+

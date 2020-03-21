@@ -1,13 +1,23 @@
 {% load static %}
-{% load wagtailcore_tags %} 
+{% load wagtailcore_tags %}
 {% load wagtailimages_tags %}
 
-<div class="block-steps">
-    <h1>{{self.title}}</h1>
+<div class="container mt-5 pt-5">
+	<div class="row  justify-content-center">
+		<div class="block-steps-wrapper col-10">
+			<h2 class="block-steps__header mb-5">{{self.title}}</h2>
 
-    {% for c in self.steps %}
-        <h1>{{c.number}}</h1>
-        <p>{{c.title}}</p>
-        <p>{{c.text}}</p>
-    {% endfor %}
+			<div class="row block-steps-list">
+				{% for c in self.steps %}
+					<div class="col-12 col-md">
+						<div class="block-steps-list__item">
+							<p class="number">{{c.number}}</p>
+							<h3 class="title">{{c.title}}</h3>
+							<p class="description">{{c.text}}</p>
+						</div>
+					</div>
+				{% endfor %}
+			</div>
+		</div>
+	</div>
 </div>

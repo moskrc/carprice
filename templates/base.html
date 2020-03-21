@@ -26,10 +26,12 @@
     </head>
 
     <body class="{% block body_class %}{% endblock %}">
-        {% wagtailuserbar %}
+				{% wagtailuserbar %}
+				{% include "includes/navbar.html" %}
 
         {% block content %}{% endblock %}
 
+				{% include "includes/footer.html" %}
         {% render_bundle 'main' 'js' %}
         {% block extra_js %}
             {# Override this in templates to add extra javascript #}
