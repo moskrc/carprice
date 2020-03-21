@@ -10,7 +10,7 @@ django-webpack-loader = "*"
 psycopg2 = "*"
 
 [requires]
-python_version = "3.8.2"
+python_version = "3.7"
 
 [scripts]
 makemigrations = "python manage.py makemigrations"
@@ -20,7 +20,6 @@ createsuperuser = "python manage.py createsuperuser"
 
 [dev-packages]
 black = "*"
-fabric = "*"
 
 [pipenv]
 allow_prereleases = true
