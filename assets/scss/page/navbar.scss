@@ -20,6 +20,13 @@
 			font-family: 'Muller Regular', sans-serif;
 		}
 	}
+	.navbar-worktime {
+		font-size: 1.125rem;
+		margin: 0;
+		font-weight: normal;
+		font-family: 'Muller Regular', sans-serif;
+		max-width: 10rem;
+	}
 
 	.navbar-phone {
 		position: relative;
@@ -44,7 +51,7 @@
 	}
 
 	&.bg-green {
-		.slogan,.navbar-phone {
+		.slogan,.navbar-phone, .navbar-worktime {
 			color: white;
 		}
 	}

@@ -20,6 +20,30 @@
 				color: white;
 				display: flex;
 				flex-direction: column;
+				font-family: 'Muller Bold', sans-serif;
+				.fast {
+					text-transform: uppercase;
+					font-size: 5rem;
+				}
+				.buy {
+					font-size: 4.75rem;
+				}
+				.city {
+					margin-top: 1rem;
+					font-family: 'Muller Regular', sans-serif;
+					font-size: 1.75rem;
+					font-weight: normal;
+				}
+			}
+		}
+		&__list {
+			ul {
+				li {
+					color: white;
+					font-family: 'Muller Regular', sans-serif;
+					font-size: 1.25rem;
+					margin-top: 1.5rem;
+				}
 			}
 		}
 
@@ -40,6 +64,10 @@
 
 
 	.triagle {
-		min-height: 5rem;
+		height: 5rem;
+		img	{
+			width: 100%;
+			height: 5rem;
+		}
 	}
 }

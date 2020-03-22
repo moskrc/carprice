@@ -10,6 +10,12 @@
 			{% endif %}
 		</div>
 
+		{% if settings.core.SiteSettings.work_time %}
+			<div class="navbar-worktime">
+				{{ settings.core.SiteSettings.work_time }}
+			</div>
+		{% endif %}
+
 		{% if settings.core.SiteSettings.phone %}
 			<a href="tel:{{ settings.core.SiteSettings.phone }}">
 				<span class="navbar-phone">{{ settings.core.SiteSettings.phone }}</span>
