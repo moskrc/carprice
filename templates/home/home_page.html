@@ -6,38 +6,11 @@
 {% block body_class %}template-homepage{% endblock %}
 
 {% block content %}
-{% include "blocks/banner_block.html" %}
-{{page.title}}
-<p>
-телефон
-{{settings.core.SiteSettings.phone|default:'-'}}
-</p>
-<p>
-время работы {{settings.core.SiteSettings.work_time|default:'-'}}
-</p>
-<p>
-{% image settings.core.SiteSettings.logo fill-80x80 as tmp_logo %}
-лого
-<img src="{{ tmp_logo.url }}" width="{{ tmp_logo.width }}"
-    height="{{ tmp_logo.height }}" alt="{{ tmp_logo.alt }}" class="my-custom-class" />
+	{% include "blocks/banner_block.html" %}
 
 
-</p>
-<p>
-слоган верх {{settings.core.SiteSettings.slogan_top|default:'-'}}
-</p>
-<p>
-слоган низ {{settings.core.SiteSettings.slogan_bottom|default:'-'}}
-</p>
-
-<p>a super site will be here</p>
-
-<hr/>
-
-{% include_block page.body  %}
-
+	{% include_block page.body  %}
 
 	{% include "blocks/form_block.html" %}
-	<script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3Aa370e7736621ceaa536711af7019429062559d24c0a0c650f14eea6b31532c2a&amp;width=100%25&amp;height=500&amp;lang=ru_RU&amp;scroll=true"></script>
-
+	{% include "blocks/map_block.html" %}
 {% endblock content %}

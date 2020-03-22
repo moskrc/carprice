@@ -3,24 +3,23 @@
 {% load wagtailimages_tags %}
 
 
-
 <div class="container mb-5">
-	<div class="block-cars">
-		<h2 class="block-cars__header mb-5">{{self.title}}</h2>
+	<div class="block-cars-wrapper">
+		<h2 class="block-cars-wrapper__header mb-5">{{self.title}}</h2>
 
-		<div class="row block-cars-list">
+		<div class="row block-cars-wrapper-list">
 			{% for c in self.cars %}
 				<div class="col-12 col-md-6 col-lg-3 col-p-small">
-					<div class="block-cars-list__item">
+					<div class="block-cars-wrapper-list__item">
 						{% image c.image fill-400x250 as car_pic %}
 						<img src="{{ car_pic.url }}" width="{{ car_pic.width }}" height="{{ car_pic.height }}" alt="{{ car_pic.alt }}" class="photo" />
 
-						<div class="block-cars-list__item-body">
-							<div class="block-cars-list__item-body__logo">
+						<div class="block-cars-wrapper-list__item-body">
+							<div class="block-cars-wrapper-list__item-body__logo">
 								<img class="" src="{{ car_pic.url }}" alt="">
 							</div>
 
-							<div class="block-cars-list__item-body__info">
+							<div class="block-cars-wrapper-list__item-body__info">
 								<p class="title">{{c.title}}</p>
 
 								<table class="information">

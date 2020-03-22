@@ -1,0 +1,45 @@
+.block-banner {
+
+	&-wrapper {
+		background-image: url("/static/img/pictures/bg-car.png");
+		background-repeat: no-repeat;
+		background-position: center;
+		background-size: cover;
+
+		position: relative;
+
+		&__info {
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+		}
+
+		&__title {
+			margin-top: 5rem;
+			h1 {
+				color: white;
+				display: flex;
+				flex-direction: column;
+			}
+		}
+
+		&__form {
+			display: flex;
+			flex-direction: column-reverse;
+
+		}
+	}
+
+
+	.container {
+		.content {
+			min-height: 35rem;
+			margin-bottom: 5rem;
+		}
+	}
+
+
+	.triagle {
+		min-height: 5rem;
+	}
+}
