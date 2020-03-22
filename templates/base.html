@@ -32,6 +32,9 @@
         {% block content %}{% endblock %}
 
 				{% include "includes/footer.html" %}
+				{% include "includes/modal-request.html" %}
+
+
         {% render_bundle 'main' 'js' %}
         {% block extra_js %}
             {# Override this in templates to add extra javascript #}

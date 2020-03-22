@@ -1,6 +1,6 @@
 //libraries
 import $ from "jquery";
-import "bootstrap/js/dist/index.js";
+import "bootstrap";
 
 //website js
 import "./js/main.js";

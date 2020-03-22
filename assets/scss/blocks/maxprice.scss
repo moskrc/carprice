@@ -9,5 +9,14 @@
 	}
 	&-wrapper {
 		background: $colorGreenDefault;
+
+		&__car {
+			position: relative;
+			height: 42rem;
+			img	{
+				position: absolute;
+				right: 0;
+			}
+		}
 	}
 }
