@@ -1,8 +1,33 @@
 {% load static %}
-{% load wagtailcore_tags %} 
+{% load wagtailcore_tags %}
 
-<div class="block-action">
-    <h1>{{self.title}}</h1>
-    <p>{{self.text|linebreaks}}</p>
-    {% include_block self.button %}
+
+<div class="block-maxprice">
+	<div class="block-maxprice-wrapper">
+		<div class="triagle">
+			<img src="/static/img/icons/triangle2.svg" alt="">
+		</div>
+		<div class="container">
+
+			<div class="row">
+				<div class="block-maxprice-wrapper__car col-12 col-md-6 d-none d-md-block">
+					<img src="/static/img/pictures/car_move.png" alt="">
+				</div>
+				<div class="block-maxprice-wrapper__info col-12 col-md-6">
+					<h3>
+						{{ self.title }}
+					</h3>
+
+                    {% include_block self.text %}
+
+
+					<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+						{{self.button_text}}
+					</button>
+				</div>
+			</div>
+		</div>
+
+	</div>
 </div>
+

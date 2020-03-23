@@ -36,9 +36,9 @@ class FeaturesBlock(blocks.StructBlock):
 class ActionBlock(blocks.StructBlock):
     """Панель с кнопкой к действию"""
 
-    title = blocks.CharBlock()
-    text = blocks.CharBlock(required=True, max_length=255)
-    button = ButtonBlock()
+    title = blocks.CharBlock(label='Заголовок')
+    text = blocks.RichTextBlock(label='Содержимое')
+    button_text = blocks.CharBlock(label='Текст кнопки')
 
     class Meta:
         icon = "link"
