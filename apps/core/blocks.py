@@ -2,20 +2,33 @@ from wagtail.core import blocks
 from wagtail.images.blocks import ImageChooserBlock
 
 
-class ButtonBlock(blocks.StructBlock):
-    """Кнопка"""
+class MainBlock(blocks.StructBlock):
+    """
+    Главная панель
+    """
 
-    text = blocks.CharBlock()
-    page_link = blocks.PageChooserBlock(required=False)
-    external_link = blocks.URLBlock(required=False)
+    header1 = blocks.CharBlock(label="Первая линия заголовка")
+    header2 = blocks.CharBlock(label="Вторая линия заголовка")
+    header3 = blocks.CharBlock(label="Третья линия заголовка")
+    items = blocks.ListBlock(
+        blocks.StructBlock(
+            [
+                ("image", ImageChooserBlock(required=True)),
+                ("text", blocks.CharBlock(required=True, max_length=255)),
+            ]
+        ),
+        label="Список",
+    )
 
     class Meta:
-        icon = "link"
-        template = "blocks/button_block.html"
+        icon = "main"
+        template = "blocks/main_block.html"
 
 
 class FeaturesBlock(blocks.StructBlock):
-    """Панель с возможностями"""
+    """
+    Панель с возможностями
+    """
 
     title = blocks.CharBlock()
     features = blocks.ListBlock(
@@ -34,11 +47,13 @@ class FeaturesBlock(blocks.StructBlock):
 
 
 class ActionBlock(blocks.StructBlock):
-    """Панель с кнопкой к действию"""
+    """
+    Панель с кнопкой к действию
+    """
 
-    title = blocks.CharBlock(label='Заголовок')
-    text = blocks.RichTextBlock(label='Содержимое')
-    button_text = blocks.CharBlock(label='Текст кнопки')
+    title = blocks.CharBlock(label="Заголовок")
+    text = blocks.RichTextBlock(label="Содержимое")
+    button_text = blocks.CharBlock(label="Текст кнопки")
 
     class Meta:
         icon = "link"
@@ -46,7 +61,9 @@ class ActionBlock(blocks.StructBlock):
 
 
 class CarsBlock(blocks.StructBlock):
-    """Панель с купленными машинами"""
+    """
+    Панель с купленными машинами
+    """
 
     title = blocks.CharBlock()
     cars = blocks.ListBlock(
@@ -126,7 +143,9 @@ class CarsBlock(blocks.StructBlock):
 
 
 class StepsBlock(blocks.StructBlock):
-    """Панель с шагами"""
+    """
+    Панель с шагами
+    """
 
     title = blocks.CharBlock()
     steps = blocks.ListBlock(
@@ -144,8 +163,22 @@ class StepsBlock(blocks.StructBlock):
         template = "blocks/steps_block.html"
 
 
+class FormBlock(blocks.StructBlock):
+    """
+    Панель с формой на фоне машины внизу
+    """
+
+    title = blocks.CharBlock()
+
+    class Meta:
+        icon = "form"
+        template = "blocks/form_block.html"
+
+
 class MapBlock(blocks.StructBlock):
-    """Панель с картой"""
+    """
+    Панель с картой
+    """
 
     yandex_map = blocks.TextBlock(help_text="Код из конструктора Яндекс карт")
     text = blocks.RichTextBlock()
@@ -155,13 +188,3 @@ class MapBlock(blocks.StructBlock):
     class Meta:
         icon = "map"
         template = "blocks/map_block.html"
-
-
-class FormBlock(blocks.StructBlock):
-    """Панель с формой"""
-
-    title = blocks.CharBlock()
-
-    class Meta:
-        icon = "form"
-        template = "blocks/form_block.html"

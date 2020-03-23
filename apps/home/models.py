@@ -26,16 +26,18 @@ from apps.core.blocks import (
     StepsBlock,
     MapBlock,
     FormBlock,
+    MainBlock,
 )
 
 
 CONTENT_STREAMBLOCKS = [
+    ("main", MainBlock()),
     ("features", FeaturesBlock()),
     ("action", ActionBlock()),
     ("cars", CarsBlock()),
     ("steps", StepsBlock()),
-    ("map", MapBlock()),
     ("form", FormBlock()),
+    ("map", MapBlock()),
 ]
 
 

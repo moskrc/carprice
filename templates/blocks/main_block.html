@@ -1,5 +1,6 @@
 {% load static %}
 {% load wagtailcore_tags %}
+{% load wagtailimages_tags %}
 
 
 <div class="block-banner">
@@ -9,20 +10,22 @@
 				<div class="col-12 col-md-6 block-banner-wrapper__info">
 
 					<div class="block-banner-wrapper__title">
-						<h1><span class="fast">Срочный</span> <span class="buy">выкуп авто</span> <span class="city">В Воронеже и области</span></h1>
+						<h1>
+						<span class="fast">{{self.header1|default:'Срочный' }}</span>
+						<span class="buy">{{self.header2|default:'выкуп авто' }}</span>
+						<span class="city">{{self.header3|default:'В Воронеже и области' }}</span>
+					</h1>
 					</div>
 
-					<div class="block-banner-wrapper__list">
+					<li class="block-banner-wrapper__list">
 						<ul>
+						{% for i in self.items %}
 							<li>
-								[pic] on-line оценка
+								{% image i.image fill-32x32 as item_pic %}
+								<img src="{{ item_pic.url }}" width="{{ item_pic.width }}" height="{{ item_pic.height }}" alt="{{ item_pic.alt }}"/>
+								{{i.text}}
 							</li>
-							<li>
-								[pic] on-line оценка
-							</li>
-							<li>
-								[pic] on-line оценка
-							</li>
+						{% endfor %}
 						</ul>
 					</div>
 				</div>
