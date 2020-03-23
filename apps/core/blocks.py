@@ -52,9 +52,70 @@ class CarsBlock(blocks.StructBlock):
     cars = blocks.ListBlock(
         blocks.StructBlock(
             [
-                ("price", blocks.CharBlock(required=True, max_length=255)),
-                ("title", blocks.CharBlock(required=True, max_length=100)),
-                ("image", ImageChooserBlock(required=True)),
+                (
+                    "title",
+                    blocks.CharBlock(
+                        label="Название автомобиля",
+                        required=True,
+                        max_length=100,
+                        help_text="Например: Nissian Teana",
+                    ),
+                ),
+                (
+                    "year",
+                    blocks.CharBlock(
+                        label="Год выпуска",
+                        required=True,
+                        max_length=100,
+                        help_text="Например: 2008",
+                    ),
+                ),
+                (
+                    "engine",
+                    blocks.CharBlock(
+                        label="Объем двигателя",
+                        required=True,
+                        help_text="Объем в литрах, например: 1.5",
+                    ),
+                ),
+                (
+                    "gear",
+                    blocks.ChoiceBlock(
+                        label="Трансмиссия",
+                        required=True,
+                        choices=(
+                            ("МКПП", "МКПП"),
+                            ("АКПП", "АКПП"),
+                            ("Вариатор", "Вариатор"),
+                        ),
+                        help_text="Вид трансмиссии",
+                    ),
+                ),
+                (
+                    "price",
+                    blocks.CharBlock(
+                        label="Цена",
+                        required=True,
+                        max_length=255,
+                        help_text="Цена в рублях с пробелами",
+                    ),
+                ),
+                (
+                    "image",
+                    ImageChooserBlock(
+                        label="Фотография",
+                        required=True,
+                        help_text="Изображение автомобиля",
+                    ),
+                ),
+                (
+                    "logo",
+                    ImageChooserBlock(
+                        label="Логотип",
+                        required=True,
+                        help_text="Логотип производителя",
+                    ),
+                ),
             ]
         )
     )
@@ -94,3 +155,13 @@ class MapBlock(blocks.StructBlock):
     class Meta:
         icon = "map"
         template = "blocks/map_block.html"
+
+
+class FormBlock(blocks.StructBlock):
+    """Панель с формой"""
+
+    title = blocks.CharBlock()
+
+    class Meta:
+        icon = "form"
+        template = "blocks/form_block.html"

@@ -5,7 +5,7 @@
 
 <div class="container mb-5">
 	<div class="block-cars-wrapper">
-		<h2 class="block-cars-wrapper__header mb-5">{{self.title}}</h2>
+		<h2 class="block-cars-wrapper__header mb-5">{{ self.title }}</h2>
 
 		<div class="row block-cars-wrapper-list">
 			{% for c in self.cars %}
@@ -16,7 +16,9 @@
 
 						<div class="block-cars-wrapper-list__item-body">
 							<div class="block-cars-wrapper-list__item-body__logo">
-								<img class="" src="{{ car_pic.url }}" alt="">
+							
+							    {% image c.logo max-400x250 as logo_pic %}
+								<img class="" src="{{ logo_pic.url }}" alt="">
 							</div>
 
 							<div class="block-cars-wrapper-list__item-body__info">
@@ -28,8 +30,7 @@
 											Год выпуска:
 										</td>
 										<td>
-{#											{{c.title}}#}
-											2008
+											{{c.year}}
 										</td>
 									</tr>
 									<tr>
@@ -37,8 +38,7 @@
 											Обьем двигателя:
 										</td>
 										<td>
-{#											{{c.title}}#}
-												2.5
+												{{c.engine}}
 										</td>
 									</tr>
 									<tr>
@@ -46,8 +46,7 @@
 											Коробка передач:
 										</td>
 										<td>
-{#											{{c.title}}#}
-											МКПП
+											{{c.gear}}
 										</td>
 									</tr>
 								</table>

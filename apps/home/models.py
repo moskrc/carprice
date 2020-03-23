@@ -19,7 +19,14 @@ from wagtail.core.models import Page, Orderable
 from wagtail.images.edit_handlers import ImageChooserPanel
 from wagtail.snippets.models import register_snippet
 
-from apps.core.blocks import FeaturesBlock, ActionBlock, CarsBlock, StepsBlock, MapBlock
+from apps.core.blocks import (
+    FeaturesBlock,
+    ActionBlock,
+    CarsBlock,
+    StepsBlock,
+    MapBlock,
+    FormBlock,
+)
 
 
 CONTENT_STREAMBLOCKS = [
@@ -28,6 +35,7 @@ CONTENT_STREAMBLOCKS = [
     ("cars", CarsBlock()),
     ("steps", StepsBlock()),
     ("map", MapBlock()),
+    ("form", FormBlock()),
 ]
 
 
