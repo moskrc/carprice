@@ -18,7 +18,7 @@ from wagtail.snippets.edit_handlers import SnippetChooserPanel
 from wagtail.core.models import Page, Orderable
 from wagtail.images.edit_handlers import ImageChooserPanel
 from wagtail.snippets.models import register_snippet
-
+from wagtail.core import blocks
 from apps.core.blocks import (
     FeaturesBlock,
     ActionBlock,
@@ -40,7 +40,19 @@ CONTENT_STREAMBLOCKS = [
     ("map", MapBlock()),
 ]
 
+INNER_PAGE_STREAMBLOCKS = [("text", blocks.RichTextBlock())]
+
 
 class HomePage(Page):
     body = StreamField(CONTENT_STREAMBLOCKS, null=True, blank=True)
     content_panels = Page.content_panels + [StreamFieldPanel("body")]
+    is_creatable = False
+    parent_page_types = [Page]
+    subpage_types = []
+
+
+class InnerPage(Page):
+    body = StreamField(INNER_PAGE_STREAMBLOCKS, null=True, blank=True)
+    content_panels = Page.content_panels + [StreamFieldPanel("body")]
+    subpage_types = []
+    parent_page_types = [HomePage]
