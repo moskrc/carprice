@@ -19,12 +19,14 @@ class FeaturesBlock(blocks.StructBlock):
 
     title = blocks.CharBlock()
     features = blocks.ListBlock(
-        blocks.StructBlock([
-            ("title", blocks.CharBlock(required=True, max_length=100)),
-            ("image", ImageChooserBlock(required=True)),
-            ("text", blocks.CharBlock(required=True, max_length=255)),
-        ])
-    )    
+        blocks.StructBlock(
+            [
+                ("title", blocks.CharBlock(required=True, max_length=100)),
+                ("image", ImageChooserBlock(required=True)),
+                ("text", blocks.CharBlock(required=True, max_length=255)),
+            ]
+        )
+    )
 
     class Meta:
         icon = "link"
@@ -48,12 +50,14 @@ class CarsBlock(blocks.StructBlock):
 
     title = blocks.CharBlock()
     cars = blocks.ListBlock(
-        blocks.StructBlock([
-            ("price", blocks.CharBlock(required=True, max_length=255)),
-            ("title", blocks.CharBlock(required=True, max_length=100)),
-            ("image", ImageChooserBlock(required=True)),            
-        ])
-    )    
+        blocks.StructBlock(
+            [
+                ("price", blocks.CharBlock(required=True, max_length=255)),
+                ("title", blocks.CharBlock(required=True, max_length=100)),
+                ("image", ImageChooserBlock(required=True)),
+            ]
+        )
+    )
 
     class Meta:
         icon = "link"
@@ -65,13 +69,28 @@ class StepsBlock(blocks.StructBlock):
 
     title = blocks.CharBlock()
     steps = blocks.ListBlock(
-        blocks.StructBlock([
-            ("number", blocks.CharBlock(required=True, max_length=2)),
-            ("title", blocks.CharBlock(required=True, max_length=100)),
-            ("text", blocks.CharBlock(required=True, max_length=255)),
-        ])
-    )    
+        blocks.StructBlock(
+            [
+                ("number", blocks.CharBlock(required=True, max_length=2)),
+                ("title", blocks.CharBlock(required=True, max_length=100)),
+                ("text", blocks.CharBlock(required=True, max_length=255)),
+            ]
+        )
+    )
 
     class Meta:
         icon = "link"
         template = "blocks/steps_block.html"
+
+
+class MapBlock(blocks.StructBlock):
+    """Панель с картой"""
+
+    yandex_map = blocks.TextBlock(help_text="Код из конструктора Яндекс карт")
+    text = blocks.RichTextBlock()
+    show_phone = blocks.BooleanBlock(required=False)
+    show_work_time = blocks.BooleanBlock(required=False)
+
+    class Meta:
+        icon = "map"
+        template = "blocks/map_block.html"

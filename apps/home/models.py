@@ -19,19 +19,18 @@ from wagtail.core.models import Page, Orderable
 from wagtail.images.edit_handlers import ImageChooserPanel
 from wagtail.snippets.models import register_snippet
 
-from apps.core.blocks import FeaturesBlock, ActionBlock, CarsBlock, StepsBlock
+from apps.core.blocks import FeaturesBlock, ActionBlock, CarsBlock, StepsBlock, MapBlock
 
 
 CONTENT_STREAMBLOCKS = [
     ("features", FeaturesBlock()),
     ("action", ActionBlock()),
     ("cars", CarsBlock()),
-	("steps", StepsBlock()),
+    ("steps", StepsBlock()),
+    ("map", MapBlock()),
 ]
 
 
 class HomePage(Page):
     body = StreamField(CONTENT_STREAMBLOCKS, null=True, blank=True)
-    content_panels = Page.content_panels + [
-        StreamFieldPanel("body")
-    ]
+    content_panels = Page.content_panels + [StreamFieldPanel("body")]

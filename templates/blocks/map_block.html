@@ -6,32 +6,23 @@
 <div class="block-map">
 	<div class="block-map-main">
 
-		<script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3Aa370e7736621ceaa536711af7019429062559d24c0a0c650f14eea6b31532c2a&amp;width=100%25&amp;height=500&amp;lang=ru_RU&amp;scroll=true"></script>
+		{{ self.yandex_map|safe }}
 
 
 		<div class="block-map-wrapper">
-			{{page.title}}
+			{% include_block self.text %}
+			
+			{% if self.show_work_time %}
 			<p>
-				телефон
-				{{settings.core.SiteSettings.phone|default:'-'}}
+				{{settings.core.SiteSettings.work_time|default:'-'}}
 			</p>
-			<p>
-				время работы {{settings.core.SiteSettings.work_time|default:'-'}}
-			</p>
-			<p>
-				{% image settings.core.SiteSettings.logo fill-80x80 as tmp_logo %}
-				лого
-				<img src="{{ tmp_logo.url }}" width="{{ tmp_logo.width }}"
-						 height="{{ tmp_logo.height }}" alt="{{ tmp_logo.alt }}" class="my-custom-class" />
+			{% endif %}
 
-			</p>
+			{% if self.show_phone %}
 			<p>
-				слоган верх {{settings.core.SiteSettings.slogan_top|default:'-'}}
+				Тел: {{settings.core.SiteSettings.phone|default:'-'}}
 			</p>
-			<p>
-				слоган низ {{settings.core.SiteSettings.slogan_bottom|default:'-'}}
-			</p>
-			<p>a super site will be here</p>
+			{% endif %}
 		</div>
 
 	</div>

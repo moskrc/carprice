@@ -25,6 +25,13 @@
 			{% endif %}
 		</div>
 
-		<span class="navbar-copyright">© 2020 Все права защены</span>
+		<span class="navbar-copyright">
+		{% if settings.core.SiteSettings.text_bottom %}
+			{{settings.core.SiteSettings.text_bottom}}
+		{% else %}
+			© {% now 'Y' %} Все права защены
+		{% endif %}
+		</span>
+		
 	</div>
 </footer>
