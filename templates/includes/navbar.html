@@ -1,8 +1,11 @@
+{% load wagtailimages_tags %}
+
 <nav class="navbar bg-green">
 	<div class="container">
 		<div class="navbar-site-logo">
 			<a class="navbar-brand" href="#">
-				<img src="/docs/4.0/assets/brand/bootstrap-solid.svg" width="30" alt="">
+			{% image settings.core.SiteSettings.logo_top fill-50x50 as logo_pic %}
+			<img src="{{ logo_pic.url }}" width="{{ logo_pic.width }}" height="{{ logo_pic.height }}" alt="{{ logo_pic.alt }}" class="photo" />
 			</a>
 
 			{% if settings.core.SiteSettings.slogan_top %}
