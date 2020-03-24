@@ -13,13 +13,13 @@
 {#    {% endfor %}#}
 {#</div>#}
 
-<div class="container">
-	<div class="block-features">
-		<h2 class="block-features__header mb-5">{{self.title}}</h2>
+<div class="block-features-wrapper">
+	<div class="container">
+		<h2 class="block-features-wrapper__header mb-5">{{self.title}}</h2>
 
-		<div class="row block-features-list">
+		<div class="row block-features-wrapper-list">
 			{% for c in self.features %}
-				<div class="col-12 col-md block-features-list__item">
+				<div class="col-12 col-md block-features-wrapper-list__item">
 					{% image c.image fill-80x80 as car_pic %}
 					<img src="{{ car_pic.url }}" width="{{ car_pic.width }}" height="{{ car_pic.height }}" alt="{{ car_pic.alt }}"/>
 

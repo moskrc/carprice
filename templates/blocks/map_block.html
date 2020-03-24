@@ -2,28 +2,25 @@
 {% load wagtailcore_tags %}
 {% load wagtailimages_tags %}
 
+<div class="block-map-wrapper">
 
-<div class="block-map">
-	<div class="block-map-main">
-
-		{{ self.yandex_map|safe }}
+	{{ self.yandex_map|safe }}
 
 
-		<div class="block-map-wrapper">
-			{% include_block self.text %}
-			
-			{% if self.show_work_time %}
-			<p>
-				{{settings.core.SiteSettings.work_time|default:'-'}}
-			</p>
-			{% endif %}
+	<div class="block-map-wrapper__card">
+		{% include_block self.text %}
 
-			{% if self.show_phone %}
-			<p>
-				Тел: {{settings.core.SiteSettings.phone|default:'-'}}
-			</p>
-			{% endif %}
-		</div>
+		{% if self.show_work_time %}
+		<p>
+			{{settings.core.SiteSettings.work_time|default:'-'}}
+		</p>
+		{% endif %}
 
+		{% if self.show_phone %}
+		<p>
+			Тел: {{settings.core.SiteSettings.phone|default:'-'}}
+		</p>
+		{% endif %}
 	</div>
+
 </div>

@@ -1,17 +1,23 @@
+{% load static %}
+{% load wagtailcore_tags %}
+{% load wagtailimages_tags %}
+
+
 <nav class="navbar bg-green">
 	<div class="container">
 		<div class="navbar-site-logo">
-			<a class="navbar-brand" href="#">
-				<img src="/docs/4.0/assets/brand/bootstrap-solid.svg" width="30" alt="">
+			<a class="navbar-brand" href="/">
+				{% image settings.core.SiteSettings.logo max-100x100 as logo_pic %}
+				<img class="" src="{{ logo_pic.url }}" width="100" alt="">
 			</a>
 
 			{% if settings.core.SiteSettings.slogan_top %}
-				<h2 class="slogan">{{ settings.core.SiteSettings.slogan_top }}</h2>
+				<h2 class="slogan d-none d-lg-block">{{ settings.core.SiteSettings.slogan_top }}</h2>
 			{% endif %}
 		</div>
 
 		{% if settings.core.SiteSettings.work_time %}
-			<div class="navbar-worktime">
+			<div class="navbar-worktime d-none d-xl-block">
 				{{ settings.core.SiteSettings.work_time }}
 			</div>
 		{% endif %}

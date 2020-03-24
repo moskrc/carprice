@@ -53,6 +53,16 @@ module.exports = (env, argv) => {
 		mode: argv.mode,
 		entry: "./index.js",
 		output,
+
+		// entry: {
+		// 	// bundleLibraries: './indexLibraries.js',
+		// 	main: './index.js',
+		// 	// bundleCss: './indexCss.js'
+		// },
+		// output: {
+		// 	filename: '[name].js'
+		// },
+
 		module: {
 			rules: [
 				// Scripts

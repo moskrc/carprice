@@ -1,68 +1,66 @@
-.block-banner {
+.block-banner-wrapper {
+	background-image: url("/static/img/pictures/bg-car-main.jpg");
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
 
-	&-wrapper {
-		background-image: url("/static/img/pictures/bg-car.png");
-		background-repeat: no-repeat;
-		background-position: center;
-		background-size: cover;
+	position: relative;
+	margin-bottom: 5rem;
 
-		position: relative;
+	&__content {
+		margin-bottom: 2rem;
+	}
 
-		&__info {
+	&__info {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		min-height: 35rem;
+	}
+
+	&__title {
+		margin-top: 5rem;
+		h1 {
+			color: white;
 			display: flex;
 			flex-direction: column;
-			justify-content: space-between;
+			font-family: 'Muller Bold', sans-serif;
+			.fast {
+				text-transform: uppercase;
+				font-size: 5rem;
+			}
+			.buy {
+				font-size: 4.75rem;
+			}
+			.city {
+				margin-top: 1rem;
+				font-family: 'Muller Regular', sans-serif;
+				font-size: 1.75rem;
+				font-weight: normal;
+			}
 		}
-
-		&__title {
-			margin-top: 5rem;
-			h1 {
+	}
+	&__list {
+		ul {
+			li {
 				color: white;
+				font-family: 'Muller Regular', sans-serif;
+				font-size: 1.25rem;
+				margin-top: 1.5rem;
 				display: flex;
-				flex-direction: column;
-				font-family: 'Muller Bold', sans-serif;
-				.fast {
-					text-transform: uppercase;
-					font-size: 5rem;
-				}
-				.buy {
-					font-size: 4.75rem;
-				}
-				.city {
-					margin-top: 1rem;
-					font-family: 'Muller Regular', sans-serif;
-					font-size: 1.75rem;
-					font-weight: normal;
+				align-items: center;
+				img	{
+					margin-right: 1rem;
 				}
 			}
 		}
-		&__list {
-			ul {
-				li {
-					color: white;
-					font-family: 'Muller Regular', sans-serif;
-					font-size: 1.25rem;
-					margin-top: 1.5rem;
-				}
-			}
-		}
-
-		&__form {
-			display: flex;
-			flex-direction: column-reverse;
-
-		}
 	}
 
+	&__form {
+		display: flex;
+		flex-direction: column-reverse;
 
-	.container {
-		.content {
-			min-height: 35rem;
-			margin-bottom: 5rem;
-		}
 	}
-
-
 	.triagle {
 		height: 5rem;
 		img	{

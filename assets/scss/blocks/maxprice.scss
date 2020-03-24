@@ -1,5 +1,6 @@
-.block-maxprice {
-
+.block-maxprice-wrapper {
+	background: $colorGreenDefault;
+	margin-bottom: 5rem;
 
 	.triagle {
 		img {
@@ -7,16 +8,72 @@
 			height: 5rem;
 		}
 	}
-	&-wrapper {
-		background: $colorGreenDefault;
 
-		&__car {
-			position: relative;
-			height: 42rem;
-			img	{
-				position: absolute;
-				right: 0;
+	&__car {
+		position: relative;
+		min-height: 42rem;
+		img.moving-car	{
+			position: absolute;
+			right: 0;
+			height: 100%;
+		}
+	}
+
+	&__info {
+		color: white;
+		font-family: "Muller Medium", sans-serif;
+		font-size: 1.5rem;
+		margin: 4rem 0;
+
+		h3 {
+			font-family: "PT Root UI Web Bold", sans-serif;
+			color: inherit;
+			margin-bottom: 1rem;
+			font-size: 4rem;
+		}
+		ul {
+			font-family: "Muller Regular", sans-serif;
+			margin-top: 2rem;
+			margin-left: 3rem;
+			li {
+				position: relative;
+				margin-bottom: 0.5rem;
+				line-height: 2rem;
+				&:before {
+					content: "";
+					background-image: url("/static/img/icons/check-circle-outline.svg");
+					position: absolute;
+					left: -3rem;
+					width: 2rem;
+					height: 2rem;
+				}
 			}
 		}
+		button {
+			margin-top: 2rem;
+			font-family: "Muller Regular", sans-serif;
+			border: 2px solid white;
+			border-radius: 4rem;
+			color: white;
+			padding: 1rem 4rem;
+			font-size: 1.25rem;
+			background: rgba(255,255,255,0);
+			transition: 0.2s;
+			&:hover {
+				color: white;
+				background: rgba(255,255,255,0.25);
+			}
+		}
+	}
+}
+
+
+
+[data-aos="new-animation"] {
+	transform: translateX(-1000px);
+	transition-property: transform, opacity;
+
+	&.aos-animate {
+		transform: translateX(0);
 	}
 }

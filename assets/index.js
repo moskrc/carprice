@@ -5,8 +5,9 @@ import "bootstrap";
 //website js
 import "./js/main.js";
 
-//libraries
+//libraries CSS
 import "bootstrap/dist/css/bootstrap.min.css";
+import "aos/dist/aos.css";
 
 //website styles
 import "./scss/main.scss";

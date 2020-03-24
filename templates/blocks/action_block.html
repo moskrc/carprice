@@ -2,32 +2,35 @@
 {% load wagtailcore_tags %}
 
 
-<div class="block-maxprice">
-	<div class="block-maxprice-wrapper">
-		<div class="triagle">
-			<img src="{% static 'img/icons/triangle2.svg'%}" alt="">
-		</div>
-		<div class="container">
+<div class="block-maxprice-wrapper">
+	<div class="triagle">
+		<img src="{% static 'img/icons/triangle2.svg'%}" alt="">
+	</div>
+	<div class="container">
 
-			<div class="row">
-				<div class="block-maxprice-wrapper__car col-12 col-md-6 d-none d-md-block">
-					<img src="{% static 'img/pictures/car_move.png' %}" alt="">
-				</div>
-				<div class="block-maxprice-wrapper__info col-12 col-md-6">
+		<div class="row">
+			<div class="block-maxprice-wrapper__car d-none col-lg-6 d-lg-block"
+					 data-aos="new-animation"
+					 data-aos-delay="200"
+					 data-aos-duration="1000"
+					 data-aos-once="true">
+				<img src="{% static 'img/pictures/car_move.png' %}" alt="" class="moving-car" >
+			</div>
+			<div class="col-12 col-lg-6">
+				<div class="block-maxprice-wrapper__info">
 					<h3>
 						{{ self.title }}
 					</h3>
 
-                    {% include_block self.text %}
+					{% include_block self.text %}
 
-
-					<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+					<button type="button" class="btn" data-toggle="modal" data-target="#exampleModal">
 						{{self.button_text}}
 					</button>
 				</div>
 			</div>
 		</div>
-
 	</div>
+
 </div>
 

@@ -3,51 +3,48 @@
 {% load wagtailimages_tags %}
 
 
-<div class="block-banner">
-	<div class="block-banner-wrapper">
-		<div class="container">
-			<div class="row content">
-				<div class="col-12 col-md-6 block-banner-wrapper__info">
+<div class="block-banner-wrapper">
+	<div class="container">
+		<div class="row block-banner-wrapper__content">
+			<div class="col-12 col-lg-8 col-xl-6 block-banner-wrapper__info">
 
-					<div class="block-banner-wrapper__title">
-						<h1>
-						<span class="fast">{{self.header1|default:'Срочный' }}</span>
-						<span class="buy">{{self.header2|default:'выкуп авто' }}</span>
-						<span class="city">{{self.header3|default:'В Воронеже и области' }}</span>
-					</h1>
-					</div>
-
-					<li class="block-banner-wrapper__list">
-						<ul>
-						{% for i in self.items %}
-							<li>
-								{% image i.image fill-32x32 as item_pic %}
-								<img src="{{ item_pic.url }}" width="{{ item_pic.width }}" height="{{ item_pic.height }}" alt="{{ item_pic.alt }}"/>
-								{{i.text}}
-							</li>
-						{% endfor %}
-						</ul>
-					</div>
+				<div class="block-banner-wrapper__title">
+					<h1>
+					<span class="fast">{{self.header1|default:'Срочный' }}</span>
+					<span class="buy">{{self.header2|default:'выкуп авто' }}</span>
+					<span class="city">{{self.header3|default:'В Воронеже и области' }}</span>
+				</h1>
 				</div>
 
-				<div class="col-12 col-md-6 block-banner-wrapper__form">
-					<form action="">
-						<div class="form-check-price">
-							<div class="form-group">
-								<input type="text" placeholder="Марка автомобиля" class="form-control">
-							</div>
-							<div class="form-group">
-								<input type="text" placeholder="Ваш телефон" class="form-control">
-							</div>
-							<input type="submit" class="btn btn-primary" value="Узнать стоимость">
+				<li class="block-banner-wrapper__list">
+					<ul>
+					{% for i in self.items %}
+						<li>
+							{% image i.image fill-32x32 as item_pic %}
+							<img src="{{ item_pic.url }}" width="{{ item_pic.width }}" height="{{ item_pic.height }}" alt="{{ item_pic.alt }}"/>
+							{{i.text}}
+						</li>
+					{% endfor %}
+					</ul>
+			</div>
+
+			<div class="col-12 col-lg-4 col-xl-6 block-banner-wrapper__form">
+				<form action="">
+					<div class="form-check-price">
+						<div class="form-group">
+							<input type="text" placeholder="Марка автомобиля" class="form-control">
 						</div>
-					</form>
-				</div>
+						<div class="form-group">
+							<input type="text" placeholder="Ваш телефон" class="form-control">
+						</div>
+						<input type="submit" class="btn btn-primary" value="Узнать стоимость">
+					</div>
+				</form>
 			</div>
 		</div>
+	</div>
 
-		<div class="triagle">
-			<img src="/static/img/icons/triangle.svg" alt="">
-		</div>
+	<div class="triagle">
+		<img src="/static/img/icons/triangle.svg" alt="">
 	</div>
 </div>
