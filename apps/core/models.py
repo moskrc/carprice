@@ -6,23 +6,33 @@ from wagtail.images.edit_handlers import ImageChooserPanel
 
 @register_setting
 class SiteSettings(BaseSetting):
-    phone = models.CharField(max_length=255, blank=True)
+    phone = models.CharField('Телефон', max_length=255, blank=True)
     # address = models.CharField(
     #     max_length=255, blank=True)
-    work_time = models.CharField(max_length=255, blank=True)
-    slogan_top = models.CharField(max_length=255, blank=True)
-    slogan_bottom = models.CharField(max_length=255, blank=True)
-    text_bottom = models.CharField(max_length=255, blank=True)
-    logo = models.ForeignKey(
+    work_time = models.CharField('Время работы', max_length=255, blank=True)
+    slogan_top = models.CharField('Слоган - верх', max_length=255, blank=True)
+    slogan_bottom = models.CharField('Слоган - низ', max_length=255, blank=True)
+    text_bottom = models.CharField('Текст - низ', max_length=255, blank=True)
+    logo_top = models.ForeignKey(
         "wagtailimages.Image",
         null=True,
         blank=True,
         on_delete=models.SET_NULL,
         related_name="+",
+        verbose_name='Логотип - верх'
+    )
+    logo_bottom = models.ForeignKey(
+        "wagtailimages.Image",
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+        related_name="+",
+        verbose_name='Логотип - низ'
     )
 
     panels = [
-        ImageChooserPanel("logo"),
+        ImageChooserPanel("logo_top"),
+        ImageChooserPanel("logo_bottom"),
         FieldPanel("phone"),
         FieldPanel("work_time"),
         FieldPanel("slogan_top"),

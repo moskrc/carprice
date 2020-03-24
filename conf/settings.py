@@ -63,25 +63,27 @@ DATABASES = {"default": DJANGO_DATABASE_URL}
 INSTALLED_APPS = [
     "apps.core",
     "apps.home",
-    "wagtail.contrib.forms",
-    "wagtail.contrib.redirects",
-    "wagtail.contrib.settings",
-    "wagtail.embeds",
-    "wagtail.sites",
-    "wagtail.users",
-    "wagtail.snippets",
-    "wagtail.documents",
-    "wagtail.images",
-    "wagtail.admin",
-    "wagtail.core",
-    "modelcluster",
-    "taggit",
+    "apps.orders",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
-    "django.contrib.sessions",
     "django.contrib.messages",
+    "django.contrib.sessions",
     "django.contrib.staticfiles",
+    "modelcluster",
+    "taggit",
+    "wagtail.admin",
+    "wagtail.contrib.forms",
+    "wagtail.contrib.modeladmin",
+    "wagtail.contrib.redirects",
+    "wagtail.contrib.settings",
+    "wagtail.core",
+    "wagtail.documents",
+    "wagtail.embeds",
+    "wagtail.images",
+    "wagtail.sites",
+    "wagtail.snippets",
+    "wagtail.users",
     "webpack_loader",
 ]
 
@@ -146,6 +148,9 @@ WEBPACK_LOADER = {
 # Wagtail settings
 
 WAGTAIL_SITE_NAME = env("WAGTAIL_SITE_NAME", default="unnamed")
+WAGTAIL_MODERATION_ENABLED = False
+WAGTAILIMAGES_MAX_UPLOAD_SIZE = 20 * 1024 * 1024  # i.e. 20MB
+WAGTAILIMAGES_MAX_IMAGE_PIXELS = 128000000  # i.e. 128 megapixels
 
 # Base URL to use when referring to full URLs within the Wagtail admin backend -
 # e.g. in notification emails. Don't include '/admin' or a trailing slash
