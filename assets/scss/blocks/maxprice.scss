@@ -3,9 +3,13 @@
 	margin-bottom: 5rem;
 
 	.triagle {
+		height: 3rem;
+		@media (min-width: 992px) {
+			height: 5rem;
+		}
 		img {
 			width: 100%;
-			height: 5rem;
+			height: 100%;
 		}
 	}
 
@@ -29,8 +33,19 @@
 			font-family: "PT Root UI Web Bold", sans-serif;
 			color: inherit;
 			margin-bottom: 1rem;
-			font-size: 4rem;
+			font-size: 2rem;
+			@media (min-width: 992px) {
+				font-size: 4rem;
+			}
 		}
+
+		.rich-text {
+			font-size: 0.875rem;
+			@media (min-width: 992px) {
+				font-size: 1rem;
+			}
+		}
+
 		ul {
 			font-family: "Muller Regular", sans-serif;
 			margin-top: 2rem;
@@ -55,13 +70,20 @@
 			border: 2px solid white;
 			border-radius: 4rem;
 			color: white;
-			padding: 1rem 4rem;
+			padding: 0.5rem;
 			font-size: 1.25rem;
+			width: 100%;
 			background: rgba(255,255,255,0);
 			transition: 0.2s;
 			&:hover {
 				color: white;
 				background: rgba(255,255,255,0.25);
+			}
+
+
+			@media (min-width: $sizeLG) {
+				width: unset;
+				padding: 1rem 4rem;
 			}
 		}
 	}

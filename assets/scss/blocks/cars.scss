@@ -3,9 +3,12 @@
 	margin-bottom: 5rem;
 	&__header {
 		color: $colorGreyDark;
-		font-size: 3.25rem;
+		font-size: 2rem;
 		font-family: 'Muller Bold', sans-serif;
 		text-align: center;
+		@media (min-width: $sizeMD) {
+			font-size: 3.25rem;
+		}
 	}
 
 	&-list {

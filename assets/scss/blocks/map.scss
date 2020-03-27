@@ -1,14 +1,39 @@
 .block-map {
+	overflow: hidden;
+	ymaps {
+		transform: scale(1.25);
+		@media (min-width: $sizeMD) {
+			transform: unset;
+		}
+
+	}
 	&-wrapper {
 		position: relative;
 		&__card {
-			position: absolute;
-			left: 9rem;
-			top: 4rem;
+			&-wrapper {
+				position: absolute;
+				left: 0;
+				right: 0;
+				top: 0;
+				bottom: 0;
+				padding: 1rem;
+				@media (min-width: $sizeMD) {
+					left: 9rem;
+					top: 4rem;
+					padding: 0;
+
+
+					right: unset;
+					bottom: unset;
+
+					width: 16rem;
+				}
+			}
 			background: white;
-			padding: 2rem;
-			width: 16rem;
 			box-shadow: 0px 8px 16px #0000001A;
+			padding: 2rem;
+			height: 100%;
+
 
 		}
 	}

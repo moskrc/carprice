@@ -2,9 +2,12 @@
 	margin-bottom: 5rem;
 	&__header {
 		color: $colorGreyDefault;
-		font-size: 3.25rem;
 		font-family: 'Muller Bold', sans-serif;
 		text-align: center;
+		font-size: 2rem;
+		@media (min-width: $sizeMD) {
+			font-size: 3.25rem;
+		}
 	}
 	&-list {
 		justify-content: space-between;

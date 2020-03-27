@@ -7,20 +7,28 @@
 	{{ self.yandex_map|safe }}
 
 
-	<div class="block-map-wrapper__card">
-		{% include_block self.text %}
+	<div class="block-map-wrapper__card-wrapper">
+		<div class="block-map-wrapper__card">
+			{% include_block self.text %}
 
-		{% if self.show_work_time %}
-		<p>
-			{{settings.core.SiteSettings.work_time|default:'-'}}
-		</p>
-		{% endif %}
+			{% if self.show_work_time %}
+				<p>
+					{{settings.core.SiteSettings.work_time|default:'-'}}
+				</p>
+			{% endif %}
 
-		{% if self.show_phone %}
-		<p>
-			Тел: {{settings.core.SiteSettings.phone|default:'-'}}
-		</p>
-		{% endif %}
+			{% if self.show_phone %}
+				<p>
+					Тел: {{settings.core.SiteSettings.phone|default:'-'}}
+				</p>
+			{% endif %}
+
+{#			{% if self. %}#}
+				<p>
+					Тел: {{settings.core.SiteSettings.email|default:'-'}}
+				</p>
+{#			{% endif %}#}
+		</div>
 	</div>
 
 </div>

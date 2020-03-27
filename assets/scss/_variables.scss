@@ -18,10 +18,8 @@ $margin-l: $base-margin * 2;
 $margin-xl: $base-margin * 4;
 
 
-// Colors
-
-$colorGreenDefault: #149373;
-$colorGreyLight: #F0F0F0;
-$colorGreyDefault: #626262;
-$colorGreyDark: #343232;
-$colorBlueDefault: #1F5294;
+// Grid
+$sizeSM: 576px;
+$sizeMD: 768px;
+$sizeLG: 992px;
+$sizeXL: 1200px;

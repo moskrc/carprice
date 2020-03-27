@@ -6,7 +6,7 @@
 	min-height: 30rem;
 
 	&-wrapper {
-		padding: 3rem 0;
+		padding: 3rem 1rem;
 		background-image: url("/static/img/pictures/bg-car-check-price.png");
 		background-repeat: no-repeat;
 		background-position: center;
@@ -20,10 +20,13 @@
 		font-family: "Muller Regular", sans-serif;
 		h3 {
 			color: white;
-			font-size: 3rem;
+			font-size: 2rem;
 			text-align: center;
 			font-weight: normal;
 			margin-bottom: 3rem;
+			@media (min-width: $sizeMD) {
+				font-size: 3rem;
+			}
 		}
 	}
 }
@@ -32,19 +35,27 @@
 
 .form-check-price {
 	display: flex;
+	flex-direction: column;
 	overflow: hidden;
-	border-radius: 10rem;
-	margin: 0 1rem;
+	border-radius: 0;
+
+	@media (min-width: 992px) {
+		border-radius: 10rem;
+		flex-direction: row;
+	}
+
 	& .form-group {
 		margin: 0;
 		position: relative;
 		&:after {
 			content: "";
 			height: 2.75rem;
-			border-left: 1px solid $colorGreenDefault;
 			position: absolute;
 			left: 0;
 			top: 0.5rem;
+			@media (min-width: 992px) {
+				border-left: 1px solid $colorGreenDefault;
+			}
 		}
 		&:first-child {
 			&:after {
@@ -52,19 +63,44 @@
 			}
 		}
 		& .form-control {
-			border: none;
-			border-radius: 0;
-			padding: 1.5rem 2rem 1.25rem;
-			font-family: "Muller Regular", sans-serif;
+			background-color: transparent;
+			border-radius: 2rem;
+			font-family: "Muller Medium", sans-serif;
 			box-sizing: border-box;
 			height: 100%;
+			color: white;
+			padding: 0.875rem 1.5rem 0.75rem;
+			border: 1px solid rgba(255,255,255,0.75);
+			margin-bottom: 1rem;
+			font-size: 1rem;
+			&::placeholder {
+				color: white;
+			}
+			@media (min-width: 992px) {
+				font-size: 1rem;
+				margin-bottom: 0;
+				border: none;
+				background-color: white;
+				color: $colorGreyDefault;
+				padding: 1.5rem 2rem 1.25rem;
+				border-radius: 0;
+				&::placeholder {
+					color: $colorGreyDefault;
+				}
+			}
 		}
 	}
 	& .btn-primary {
 		border: none;
-		border-radius: 0;
 		padding: 1rem 2rem 0.75rem;
 		font-family: "Muller Regular", sans-serif;
 		box-sizing: content-box;
+		flex: 1;
+		border-radius: 10rem;
+		margin-top: 2rem;
+		@media (min-width: 992px) {
+			border-radius: 0;
+			margin-top: 0;
+		}
 	}
 }

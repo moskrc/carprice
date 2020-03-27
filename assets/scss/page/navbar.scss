@@ -5,20 +5,38 @@
 
 .navbar {
 	padding: 1rem 0;
-	height: 6rem;
+	height: unset;
+	@media (min-width: $sizeMD) {
+		height: 6rem;
+	}
 
 	.navbar-site-logo {
 		display: flex;
-		align-items: center;
+		flex-direction: column;
+
+		@media (min-width: $sizeMD) {
+			flex-direction: row;
+			align-items: center;
+		}
+
 		& img {
 
+			max-width: 60px;
+			@media (min-width: $sizeMD) {
+				max-width: unset;
+			}
 		}
 		& .slogan {
-			font-size: 1.375rem;
+			font-size: 0.875rem;
 			margin: 0;
-			margin-left: 3rem;
+			margin-top: 0.5rem;
 			font-weight: normal;
 			font-family: 'Muller Regular', sans-serif;
+			@media (min-width: $sizeMD) {
+				margin-top: 0;
+				margin-left: 3rem;
+				font-size: 1.375rem;
+			}
 		}
 	}
 	.navbar-worktime {
@@ -31,9 +49,9 @@
 
 	.navbar-phone {
 		position: relative;
-		line-height: 1.75rem;
-		font-size: 1.75rem;
-		font-family: 'Muller Regular', sans-serif;
+		line-height: 1.25rem;
+		font-size: 1.25rem;
+		font-family: 'Roboto Bold', sans-serif;
 		display: flex;
 		align-items: center;
 		&::before {
@@ -42,17 +60,33 @@
 			background-image: url("/static/img/icons/phone.svg");
 			background-size: contain;
 			background-repeat: no-repeat;
-			height: 2rem;
-			width: 2rem;
-			left: -2rem;
 			display: inline-block;
+			height: 1.5rem;
+			width: 1.5rem;
+			left: -2rem;
 			margin-right: 0.5rem;
+		}
+
+		@media (min-width: $sizeMD) {
+			line-height: 1.75rem;
+			font-size: 1.75rem;
+			&::before {
+				height: 2rem;
+				width: 2rem;
+				left: -2rem;
+				margin-right: 0.5rem;
+			}
 		}
 	}
 	.navbar-copyright {
 		font-family: 'Muller Regular', sans-serif;
-		font-size: 1.375rem;
 		color: $colorGreyDark;
+		font-size: 0.875rem;
+		margin-top: 0.75rem;
+		@media (min-width: $sizeMD) {
+			font-size: 1.375rem;
+			margin-top: 0;
+		}
 	}
 
 	&.bg-green {
@@ -61,9 +95,21 @@
 		}
 	}
 	&.bg-white {
-		.slogan,.navbar-phone {
-			color: $colorGreenDefault;
+		.slogan{
+			color: $colorGreyDark;
 		}
 	}
 }
 
+
+
+footer.navbar {
+	.container {
+		flex-direction: column;
+		align-items: flex-start;
+		@media (min-width: $sizeMD) {
+			flex-direction: row;
+			align-items: center;
+		}
+	}
+}
