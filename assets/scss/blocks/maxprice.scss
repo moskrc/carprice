@@ -53,14 +53,14 @@
 			li {
 				position: relative;
 				margin-bottom: 0.5rem;
-				line-height: 2rem;
+				line-height: 1.75rem;
 				&:before {
 					content: "";
-					background-image: url("/static/img/icons/check-circle-outline.svg");
+					background-image: url("/static/img/icons/check.svg");
 					position: absolute;
-					left: -3rem;
-					width: 2rem;
-					height: 2rem;
+					left: -2.5rem;
+					width: 1.75rem;
+					height: 1.75rem;
 				}
 			}
 		}

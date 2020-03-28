@@ -17,6 +17,7 @@
 		justify-content: space-between;
 		&__item {
 			padding: 0 2rem;
+			margin-bottom: 3rem;
 			& .number {
 				font-family: 'Roboto Bold', sans-serif;
 				color: $colorGreenDefault;

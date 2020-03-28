@@ -32,6 +32,20 @@
 
 	& .form-check-price {
 		overflow: hidden;
+
+		align-items: center;
+		& > * {
+			max-width: 25rem;
+			width: 100%;
+			box-sizing: border-box !important;
+		}
+		@media (min-width: $sizeLG) {
+			align-items: unset;
+			& > * {
+				//max-width: 25rem;
+				//width: 100%;
+			}
+		}
 	}
 }
 
@@ -74,13 +88,14 @@
 		}
 		& .form-control {
 			background-color: transparent;
-			border-radius: 2rem;
+			border-radius: 0;
 			font-family: "Muller Medium", sans-serif;
 			box-sizing: border-box;
 			height: 100%;
 			color: white;
-			padding: 0.875rem 1.5rem 0.75rem;
-			border: 1px solid rgba(255,255,255,0.75);
+			border: none;
+			padding: 0.75rem 0 0.55rem;
+			border-bottom: 1px solid rgba(255,255,255,0.75);
 			font-size: 1rem;
 			&::placeholder {
 				color: white;
@@ -102,13 +117,15 @@
 		border: none;
 		padding: 1rem 2rem 0.75rem;
 		font-family: "Muller Regular", sans-serif;
+		//box-sizing: border-box;
 		box-sizing: content-box;
 		flex: 1;
 		border-radius: 10rem;
 		margin-top: 2rem;
-		@media (min-width: 992px) {
+		@media (min-width: $sizeLG) {
 			border-radius: 0;
 			margin-top: 0;
+			//box-sizing: content-box;
 		}
 	}
 
@@ -124,12 +141,11 @@
 				display: none;
 			}
 			.form-control {
-				border-radius: 5rem;
-				padding: 1rem 1.25rem 0.75rem;
+				border-radius: 0;
+
 				color: $colorGreyDefault;
-				box-shadow: 0px 8px 16px #0000001A;
-				border: none;
-				background: white;
+				border-bottom: 1px solid $colorGreenDefault;
+				background: transparent;
 				&::placeholder {
 					color: $colorGreyDefault;
 				}
