@@ -81,8 +81,12 @@
 			}
 
 
+			@media (min-width: $sizeSM) {
+				max-width: 14rem;
+			}
 			@media (min-width: $sizeLG) {
 				width: unset;
+				max-width: unset;
 				padding: 1rem 4rem;
 			}
 		}

@@ -5,6 +5,13 @@
 		border-radius: 6px;
 		overflow: hidden;
 	}
+	.modal-dialog {
+		&.modal-sm {
+			max-width: 340px;
+		}
+		@media (min-width: $sizeMD) {
+		}
+	}
 	.modal-header {
 		border: none;
 		height: 3.5rem;
@@ -24,6 +31,7 @@
 		}
 	}
 	.modal-body {
+		padding: 1.25rem 2rem;
 		.form-data-modal {
 			margin-top: 2rem;
 		}
@@ -48,9 +56,13 @@
 			background-position: center;
 		}
 
-		& .modal-form-wrapper {
-				padding: 1rem 2rem;
-		}
+		//& .modal-form-wrapper {
+		//	padding: 0;
+		//
+		//	@media (min-width: $sizeMD) {
+		//		padding: 1rem 2rem;
+		//	}
+		//}
 
 		& .modal-form-is-send {
 			background: $colorGreyLight;

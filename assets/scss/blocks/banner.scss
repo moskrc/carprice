@@ -75,6 +75,11 @@
 
 		& .form-check-price {
 			overflow: hidden;
+			.btn-primary {
+				@media (min-width: $sizeSM) {
+					max-width: 14rem;
+				}
+			}
 		}
 	}
 

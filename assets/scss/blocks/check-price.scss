@@ -18,24 +18,27 @@
 
 	&__title {
 		font-family: "Muller Regular", sans-serif;
+		display: flex;
+		justify-content: center;
 		h3 {
 			color: white;
 			font-size: 2rem;
 			text-align: center;
 			font-weight: normal;
 			margin-bottom: 3rem;
-			@media (min-width: $sizeMD) {
+			max-width: 600px;
+			width: 100%;
+			@media (min-width: $sizeLG) {
 				font-size: 3rem;
+				max-width: 100%;
 			}
 		}
 	}
 
 	& .form-check-price {
 		overflow: hidden;
-
-		align-items: center;
 		& > * {
-			max-width: 25rem;
+			max-width: 600px;
 			width: 100%;
 			box-sizing: border-box !important;
 		}
@@ -44,6 +47,12 @@
 			& > * {
 				//max-width: 25rem;
 				//width: 100%;
+			}
+		}
+
+		@media (min-width: $sizeSM) {
+			& > .btn {
+				max-width: 14rem;
 			}
 		}
 	}
@@ -142,10 +151,12 @@
 			}
 			.form-control {
 				border-radius: 0;
-
 				color: $colorGreyDefault;
 				border-bottom: 1px solid $colorGreenDefault;
 				background: transparent;
+
+				padding: 1rem 0 0.75rem;
+
 				&::placeholder {
 					color: $colorGreyDefault;
 				}
@@ -156,6 +167,7 @@
 			font-family: "PT Root UI Web Bold", sans-serif;
 			border-radius: 5rem;
 			margin-bottom: 2rem;
+			margin-top: 2rem;
 			padding: 0.75rem;
 		}
 	}
