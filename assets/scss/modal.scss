@@ -1,5 +1,73 @@
 .modal {
 	.modal-content {
 		background: $colorGreyLight;
+		border: none;
+		border-radius: 6px;
+		overflow: hidden;
+	}
+	.modal-header {
+		border: none;
+		height: 3.5rem;
+		.close {
+			background: url("/static/img/icons/close.svg");
+			background-repeat: no-repeat;
+			opacity: 1;
+			height: 1.5rem;
+			width: 1.5rem;
+
+			position: absolute;
+			right: 0;
+			top: 0;
+
+			margin: 1.25rem;
+			cursor: pointer;
+		}
+	}
+	.modal-body {
+		h4 {
+			color: $colorGreenDefault;
+			font-family: 'PT Root UI Web Medium', sans-serif;
+			text-align: center;
+			font-size: 1.5rem;
+			margin-bottom: 1rem;
+		}
+		p {
+			color: $colorGreyDefault;
+			text-align: center;
+			font-family: 'PT Root UI Web Medium', sans-serif;
+			margin-bottom: 4.5rem;
+		}
+		.pic {
+			background-image: url("/static/img/icons/letter.svg");
+			height: 7rem;
+			background-size: contain;
+			background-repeat: no-repeat;
+			background-position: center;
+		}
+
+		& .modal-form-wrapper {
+				padding: 1rem 2rem;
+		}
+
+		& .modal-form-is-send {
+			background: $colorGreyLight;
+			position: absolute;
+			top: 0;
+			left: 0;
+			bottom: 0;
+			right: 0;
+			display: none;
+			padding: 1rem;
+		}
+	}
+
+
+	&.map {
+		.modal-body {
+			padding: 0;
+			padding-top: 1rem;
+			position: relative;
+
+		}
 	}
 }

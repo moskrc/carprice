@@ -72,6 +72,10 @@
 		display: flex;
 		flex-direction: column-reverse;
 		padding-top: 1rem;
+
+		& .form-check-price {
+			overflow: hidden;
+		}
 	}
 
 	.triagle {

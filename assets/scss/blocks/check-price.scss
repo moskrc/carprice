@@ -29,6 +29,10 @@
 			}
 		}
 	}
+
+	& .form-check-price {
+		overflow: hidden;
+	}
 }
 
 
@@ -36,7 +40,7 @@
 .form-check-price {
 	display: flex;
 	flex-direction: column;
-	overflow: hidden;
+	//overflow: hidden;
 	border-radius: 0;
 
 	@media (min-width: 992px) {
@@ -47,6 +51,12 @@
 	& .form-group {
 		margin: 0;
 		position: relative;
+		margin-bottom: 1rem;
+
+		@media (min-width: 992px) {
+			margin-bottom: 0;
+		}
+
 		&:after {
 			content: "";
 			height: 2.75rem;
@@ -71,14 +81,12 @@
 			color: white;
 			padding: 0.875rem 1.5rem 0.75rem;
 			border: 1px solid rgba(255,255,255,0.75);
-			margin-bottom: 1rem;
 			font-size: 1rem;
 			&::placeholder {
 				color: white;
 			}
 			@media (min-width: 992px) {
 				font-size: 1rem;
-				margin-bottom: 0;
 				border: none;
 				background-color: white;
 				color: $colorGreyDefault;
@@ -101,6 +109,38 @@
 		@media (min-width: 992px) {
 			border-radius: 0;
 			margin-top: 0;
+		}
+	}
+
+
+
+	&.form-modal {
+		flex-direction: column;
+		//overflow: hidden;
+		border-radius: 0;
+		.form-group {
+			margin-bottom: 1rem;
+			&:after {
+				display: none;
+			}
+			.form-control {
+				border-radius: 5rem;
+				padding: 1rem 1.25rem 0.75rem;
+				color: $colorGreyDefault;
+				box-shadow: 0px 8px 16px #0000001A;
+				border: none;
+				background: white;
+				&::placeholder {
+					color: $colorGreyDefault;
+				}
+			}
+		}
+		.btn-primary {
+			background: $colorGreenDefault !important;
+			font-family: "PT Root UI Web Bold", sans-serif;
+			border-radius: 5rem;
+			margin-bottom: 2rem;
+			padding: 0.75rem;
 		}
 	}
 }

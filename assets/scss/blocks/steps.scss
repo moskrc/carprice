@@ -20,23 +20,32 @@
 			& .number {
 				font-family: 'Roboto Bold', sans-serif;
 				color: $colorGreenDefault;
-				font-size: 7rem;
+				font-size: 5rem;
 				font-weight: bold;
 				letter-spacing: 3px;
+				@media (min-width: $sizeMD) {
+					font-size: 7rem;
+				}
 			}
 			& .title {
 				font-family: 'Muller Bold', sans-serif;
 				color: $colorGreenDefault;
-				font-size: 1.5rem;
+				font-size: 1.25rem;
 				line-height: 1.625rem;
 				margin-top: 0.625rem;
 				margin-bottom: 0.75rem;
+				@media (min-width: $sizeMD) {
+					font-size: 1.5rem;
+				}
 			}
 			& .description {
-				font-size: 1.125rem;
+				font-size: 1rem;
 				line-height: 1.5rem;
 				color: $colorGreyDark;
 				font-family: 'Muller Regular', sans-serif;
+				@media (min-width: $sizeMD) {
+					font-size: 1.125rem;
+				}
 			}
 		}
 	}

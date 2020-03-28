@@ -1,15 +1,35 @@
-
-
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="requestModal" tabindex="-1" role="dialog" aria-labelledby="requestModal" aria-hidden="true">
 	<div class="modal-dialog" role="document">
 		<div class="modal-content">
 			<div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-					<span aria-hidden="true">&times;</span>
-				</button>
+				<span class="close" data-dismiss="modal" aria-label="Close"></span>
 			</div>
 			<div class="modal-body">
-				<p>Узнайте за сколько мы выкупим Ваш автомобиль</p>
+				<div class="modal-form-wrapper">
+					<h4>Узнайте за сколько мы выкупим Ваш автомобиль</h4>
+					<form action="" class="form-data-modal">
+						<div class="form-check-price form-modal">
+							<div class="form-group">
+								<input type="text" placeholder="Марка автомобиля" name="brand" class="form-control">
+							</div>
+							<div class="form-group">
+								<input type="text" placeholder="Модель автомобиля" name="model" class="form-control">
+							</div>
+							<div class="form-group">
+								<input type="text" placeholder="Год выпуска автомобиля" name="year" class="form-control">
+							</div>
+							<div class="form-group">
+								<input type="text" placeholder="Ваш телефон" name="phone" class="form-control" required>
+							</div>
+							<input type="submit" class="btn btn-primary btnAction" value="Узнать стоимость" data-action="send-form-data-modal">
+						</div>
+					</form>
+				</div>
+				<div class="modal-form-is-send">
+					<h4>Ваш запрос отправлен</h4>
+					<p>Мы свяжемся с Вами по телефону в ближайшее время</p>
+					<div class="pic"></div>
+				</div>
 			</div>
 		</div>
 	</div>

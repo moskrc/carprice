@@ -26,10 +26,10 @@
 			}
 
 			&-body {
-				padding: 1rem;
+				padding: 0.75rem;
 				display: flex;
 				&__logo {
-					width: 5rem;
+					width: 4rem;
 					height: auto;
 					img {
 						width: 100%;
@@ -60,11 +60,16 @@
 						font-family: 'Muller Regular', sans-serif;
 						font-size: 0.875rem;
 						color: $colorGreyDefault;
+
 						& span {
-							font-family: 'Muller Bold', sans-serif;
-							padding-left: 0.375rem;
-							color: $colorBlueDefault;
-							font-size: 1.25rem;
+							display: inline-block;
+							padding-right: 0.375rem;
+							margin-bottom: 0.25rem;
+							&.count {
+								font-family: 'Muller Bold', sans-serif;
+								color: $colorBlueDefault;
+								font-size: 1.25rem;
+							}
 						}
 					}
 				}

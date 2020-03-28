@@ -6,29 +6,67 @@
 
 	{{ self.yandex_map|safe }}
 
-
 	<div class="block-map-wrapper__card-wrapper">
 		<div class="block-map-wrapper__card">
-			{% include_block self.text %}
+
+{#				{% if self.show_city %}#}
+				<p class="city">
+					{{settings.core.SiteSettings.city|default:'Воронеж'}}
+				</p>
+{#				{% endif %}#}
+
+{#			{% if self.show_address %}#}
+				<p class="address">
+					{{settings.core.SiteSettings.address|default:'ул. Плехановская, д1'}}
+				</p>
+{#			{% endif %}#}
 
 			{% if self.show_work_time %}
-				<p>
-					{{settings.core.SiteSettings.work_time|default:'-'}}
+				<p class="work-time">
+					{{settings.core.SiteSettings.work_time|default:'с 9.00 до 20.00 без выходных'}}
 				</p>
 			{% endif %}
 
 			{% if self.show_phone %}
-				<p>
-					Тел: {{settings.core.SiteSettings.phone|default:'-'}}
-				</p>
+				<a href="tel:{{settings.core.SiteSettings.phone|default:'-'}}">
+					<p class="phone">
+						{{settings.core.SiteSettings.phone|default:'-'}}
+					</p>
+				</a>
 			{% endif %}
 
-{#			{% if self. %}#}
-				<p>
-					Тел: {{settings.core.SiteSettings.email|default:'-'}}
+{#			{% if self.show_email %}#}
+			<a href="mailto:{{settings.core.SiteSettings.email|default:'info@car.ru'}}">
+				<p class="email">
+					{{settings.core.SiteSettings.email|default:'info@car.ru'}}
 				</p>
+			</a>
 {#			{% endif %}#}
+
+			<p class="find-point d-block d-md-none btnAction" data-action="open-map">
+				Найти нас на карте
+			</p>
+
+			<div class="text">
+				{% include_block self.text %}
+			</div>
 		</div>
 	</div>
+</div>
 
+
+
+
+
+<div class="modal fade map" id="map-modal" tabindex="-1" role="dialog" aria-labelledby="map-modal" aria-hidden="true">
+	<div class="modal-dialog modal-dialog-centered" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<span class="close" data-dismiss="modal" aria-label="Close"></span>
+			</div>
+			<div class="modal-body">
+				{{ self.yandex_map|safe }}
+			</div>
+		</div>
+	</div>
 </div>

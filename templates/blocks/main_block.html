@@ -30,15 +30,15 @@
 			</div>
 
 			<div class="col-12 col-lg-4 col-xl-6 block-banner-wrapper__form">
-				<form action="">
+				<form action="" class="form-data-main">
 					<div class="form-check-price">
 						<div class="form-group d-none d-xl-block">
-							<input type="text" placeholder="Марка автомобиля" class="form-control">
+							<input type="text" placeholder="Марка автомобиля" name="brand" class="form-control">
 						</div>
 						<div class="form-group d-none d-xl-block">
-							<input type="text" placeholder="Ваш телефон" class="form-control">
+							<input type="text" placeholder="Ваш телефон" name="phone" class="form-control" required>
 						</div>
-						<input type="submit" class="btn btn-primary" value="Узнать стоимость">
+						<input type="submit" class="btn btn-primary btnAction" value="Узнать стоимость" data-action="send-form-data-main">
 					</div>
 				</form>
 			</div>
