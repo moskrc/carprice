@@ -2,20 +2,6 @@
 	background: $colorGreenDefault;
 	margin-bottom: 5rem;
 
-	.triagle {
-		height: 3rem;
-		width: 100%;
-		position: relative;
-		@media (min-width: 992px) {
-			height: 5rem;
-		}
-		img {
-			position: absolute;
-			width: 100%;
-			height: 100%;
-		}
-	}
-
 	&__car {
 		position: relative;
 		min-height: 42rem;
