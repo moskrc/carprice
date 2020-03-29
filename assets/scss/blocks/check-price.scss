@@ -22,12 +22,15 @@
 		justify-content: center;
 		h3 {
 			color: white;
-			font-size: 2rem;
+			font-size: 1.625rem;
 			text-align: center;
 			font-weight: normal;
 			margin-bottom: 3rem;
 			max-width: 600px;
 			width: 100%;
+			@media (min-width: $sizeMD) {
+				font-size: 2.25rem;
+			}
 			@media (min-width: $sizeLG) {
 				font-size: 3rem;
 				max-width: 100%;

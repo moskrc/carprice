@@ -20,7 +20,7 @@
 			bottom: 0;
 			padding: 1rem;
 			@media (min-width: $sizeMD) {
-				left: 6rem;
+				left: 3rem;
 				top: 4rem;
 				padding: 0;
 
@@ -32,15 +32,13 @@
 			}
 			@media (min-width: $sizeLG) {
 				left: 9rem;
-				top: 4rem;
-				padding: 0;
-
-
-				right: unset;
-				bottom: unset;
 
 				width: 20rem;
 			}
+			@media (min-width: $sizeXL) {
+				left: 20%;
+			}
+
 		}
 
 		background: white;

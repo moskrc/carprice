@@ -17,15 +17,17 @@
 		justify-content: space-between;
 		&__item {
 			padding: 0 2rem;
-			margin-bottom: 3rem;
+			margin-bottom: 4rem;
 			& .number {
 				font-family: 'Roboto Bold', sans-serif;
 				color: $colorGreenDefault;
 				font-size: 5rem;
 				font-weight: bold;
 				letter-spacing: 3px;
+				margin-bottom: 0;
 				@media (min-width: $sizeMD) {
 					font-size: 7rem;
+					margin-bottom: 1rem;
 				}
 			}
 			& .title {
@@ -33,7 +35,7 @@
 				color: $colorGreenDefault;
 				font-size: 1.25rem;
 				line-height: 1.625rem;
-				margin-top: 0.625rem;
+				margin-top: 0;
 				margin-bottom: 0.75rem;
 				@media (min-width: $sizeMD) {
 					font-size: 1.5rem;
