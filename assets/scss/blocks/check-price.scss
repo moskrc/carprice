@@ -58,6 +58,11 @@
 				max-width: 14rem;
 			}
 		}
+		@media (min-width: $sizeLG) {
+			& > .btn {
+				max-width: unset;
+			}
+		}
 	}
 }
 

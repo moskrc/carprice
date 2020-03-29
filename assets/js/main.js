@@ -14,7 +14,7 @@ $(document).ready(function() {
 	});
 
 	// hook for close modal
-	$("#requestModal").on("hidden.bs.modal", function(e) {
+	$(".modal").on("hidden.bs.modal", function(e) {
 		$(".modal-form-is-send").fadeOut();
 		$("form").trigger("reset");
 	});
@@ -36,7 +36,6 @@ $(document).ready(function() {
 
 		$(".modal-form-is-send").fadeIn();
 	});
-
 
 	$('.btnAction[data-action="send-form-data-main"]').click(function(e) {
 		e.preventDefault();
@@ -79,5 +78,35 @@ $(document).ready(function() {
 			$("#requestModal").modal("toggle");
 		});
 	});
+
+
+
+
+
+	$('.btnAction[data-action="open-callback-form"]').click(function(e) {
+		$("#callbackModal").modal("toggle");
+	});
+
+
+	$('.btnAction[data-action="send-form-data-modal-callback"]').click(function(e) {
+		e.preventDefault();
+		$.ajax({
+			url: config.urlRequest,
+			type: "POST",
+			dataType: 'json',
+			data: $(".form-data-modal-callback").serialize(),
+			success: function(result) {
+			// *
+			},
+			error: function(xhr, resp, text) {
+				console.log(xhr, resp, text);
+			}
+		});
+		// *
+		$(".modal-form-is-send").fadeIn();
+	});
+
+
+	console.log(navigator.userAgent)
 
 });

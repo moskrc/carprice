@@ -7,9 +7,9 @@
 	}
 	.modal-dialog {
 		&.modal-sm {
-			max-width: 340px;
-		}
-		@media (min-width: $sizeMD) {
+			@media (min-width: $sizeSM) {
+				max-width: 340px;
+			}
 		}
 	}
 	.modal-header {

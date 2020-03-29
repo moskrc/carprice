@@ -9,6 +9,7 @@
 
 	&__content {
 		margin-bottom: 2rem;
+		padding-bottom: 2rem;
 	}
 
 	&__info {
@@ -79,6 +80,9 @@
 				@media (min-width: $sizeSM) {
 					max-width: 14rem;
 				}
+				@media (min-width: $sizeLG) {
+					max-width: unset;
+				}
 			}
 		}
 	}
@@ -91,7 +95,9 @@
 	position: relative;
 	background-position: top;
 	background-size: 100% 100%;
-	@media (min-width: 992px) {
+	display: none;
+	@media (min-width: $sizeLG) {
+		display: block;
 		height: 5rem;
 	}
 	&.type-one {

@@ -6,8 +6,8 @@
 	<div class="container">
 		<div class="navbar-site-logo">
 			<a class="navbar-brand" href="/">
-				{% image settings.core.SiteSettings.logo_bottom max-100x100 as logo_pic %}
-				<img class="" src="{{ logo_pic.url }}" width="{{ logo_pic.width }}" alt="{{ logo_pic.alt }}">
+				{% image settings.core.SiteSettings.logo_bottom max-200x200 as logo_pic %}
+				<img class="" src="{{ logo_pic.url }}" width="100" alt="{{ logo_pic.alt }}">
 			</a>
 
 			{% if settings.core.SiteSettings.slogan_top %}
@@ -25,3 +25,8 @@
 
 	</div>
 </footer>
+
+
+<div class="nav-callback btnAction" data-action="open-callback-form">
+	<div class="nav-callback-icon"></div>
+</div>
