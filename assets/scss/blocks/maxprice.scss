@@ -2,6 +2,10 @@
 	background: $colorGreenDefault;
 	margin-bottom: 5rem;
 
+	@media (min-width: $sizeMD) {
+		margin-bottom: 8rem;
+	}
+
 	&__car {
 		position: relative;
 		min-height: 42rem;
@@ -37,11 +41,11 @@
 
 		ul {
 			font-family: "Muller Regular", sans-serif;
-			margin-top: 2rem;
+			margin-top: 3rem;
 			margin-left: 3rem;
 			li {
 				position: relative;
-				margin-bottom: 0.5rem;
+				margin-bottom: 0.75rem;
 				line-height: 1.75rem;
 				&:before {
 					content: "";
@@ -54,7 +58,7 @@
 			}
 		}
 		button {
-			margin-top: 2rem;
+			margin-top: 4rem;
 			font-family: "Muller Regular", sans-serif;
 			border: 2px solid white;
 			border-radius: 4rem;

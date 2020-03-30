@@ -7,6 +7,10 @@
 	position: relative;
 	margin-bottom: 5rem;
 
+	@media (min-width: $sizeMD) {
+		margin-bottom: 8rem;
+	}
+
 	&__content {
 		margin-bottom: 2rem;
 		padding-bottom: 2rem;

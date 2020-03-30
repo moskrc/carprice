@@ -17,7 +17,7 @@
 
 
 	&__title {
-		font-family: "Muller Regular", sans-serif;
+		font-family: "PT Root UI Web Bold", sans-serif;
 		display: flex;
 		justify-content: center;
 		h3 {
@@ -116,6 +116,7 @@
 			padding: 0.75rem 0 0.55rem;
 			border-bottom: 1px solid rgba(255,255,255,0.75);
 			font-size: 1rem;
+			letter-spacing: 0.02rem;
 			&::placeholder {
 				color: white;
 			}
@@ -144,6 +145,8 @@
 		flex: 1;
 		border-radius: 10rem;
 		margin-top: 2rem;
+		font-size: 1.125rem;
+		letter-spacing: 0.02rem;
 		@media (min-width: $sizeLG) {
 			border-radius: 0;
 			margin-top: 0;

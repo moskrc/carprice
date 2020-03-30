@@ -1,12 +1,14 @@
 .block-features-wrapper {
 	margin-bottom: 5rem;
+
 	&__header {
 		color: $colorGreyDefault;
 		font-family: 'Muller Bold', sans-serif;
 		text-align: center;
 		font-size: 2rem;
+		margin-bottom: 4rem;
 		@media (min-width: $sizeMD) {
-			font-size: 3.25rem;
+			font-size: 3.875rem;
 		}
 	}
 	&-list {
