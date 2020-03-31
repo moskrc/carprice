@@ -43,7 +43,7 @@
 			@media (min-width: $sizeMD) {
 				margin-top: 0;
 				margin-left: 3rem;
-				font-size: 1.5rem;
+				font-size: 1.3rem;
 			}
 		}
 	}
@@ -53,6 +53,8 @@
 		font-weight: normal;
 		font-family: 'PT Root UI Web Regular', sans-serif;
 		max-width: 8rem;
+		text-align: center;
+		line-height: 1.2rem;
 	}
 
 	.navbar-phone {
@@ -80,7 +82,7 @@
 
 		@media (min-width: $sizeMD) {
 			line-height: 1.75rem;
-			font-size: 1.75rem;
+			font-size: 1.25rem;
 			&::before {
 				height: 1.5rem;
 				width: 1.5rem;

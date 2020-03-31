@@ -26,15 +26,14 @@
     </head>
 
     <body class="{% block body_class %}{% endblock %}">
-				{% wagtailuserbar %}
-				{% include "includes/navbar.html" %}
+        {% wagtailuserbar %}
+        {% include "includes/navbar.html" %}
 
         {% block content %}{% endblock %}
 
-				{% include "includes/footer.html" %}
-				{% include "includes/modal-request.html" %}
-				{% include "includes/modal-callback.html" %}
-
+        {% include "includes/footer.html" %}
+        {% include "includes/modal-request.html" %}
+        {% include "includes/modal-callback.html" %}
 
         {% render_bundle 'main' 'js' %}
         {% block extra_js %}
