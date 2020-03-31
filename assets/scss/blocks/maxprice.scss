@@ -5,7 +5,16 @@
 	@media (min-width: $sizeMD) {
 		margin-bottom: 8rem;
 	}
-
+	&__header {
+		color: inherit;
+		font-family: 'PT Root UI Web Bold', sans-serif;
+		text-align: left;
+		font-size: 2rem;
+		margin-bottom: 1rem;
+		@media (min-width: $sizeMD) {
+			font-size: 3.875rem;
+		}
+	}
 	&__car {
 		position: relative;
 		min-height: 42rem;
@@ -21,16 +30,6 @@
 		font-family: "Muller Medium", sans-serif;
 		font-size: 1.5rem;
 		margin: 4rem 0;
-
-		h3 {
-			font-family: "PT Root UI Web Bold", sans-serif;
-			color: inherit;
-			margin-bottom: 1rem;
-			font-size: 2rem;
-			@media (min-width: 992px) {
-				font-size: 4rem;
-			}
-		}
 
 		.rich-text {
 			font-size: 0.875rem;
