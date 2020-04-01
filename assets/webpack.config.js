@@ -17,7 +17,7 @@ module.exports = (env, argv) => {
 				path: resolve("bundles/"),
 				filename: "[chunkhash]/[name].js",
 				chunkFilename: "[chunkhash]/[name].[id].js",
-				publicPath: "http://moskrc.myjino.ru/static/bundles/"
+				publicPath: "https://profitcar-vrn.ru/static/bundles/"
 			};
 			bundleTrackerPlugin = new BundleTracker({
 				filename: "bundles/webpack-bundle.prod.json"
