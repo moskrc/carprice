@@ -180,10 +180,12 @@ class MapBlock(blocks.StructBlock):
     Панель с картой
     """
 
-    yandex_map = blocks.TextBlock(help_text="Код из конструктора Яндекс карт")
-    text = blocks.RichTextBlock(required=False)
-    show_phone = blocks.BooleanBlock(required=False)
-    show_work_time = blocks.BooleanBlock(required=False)
+    yandex_map = blocks.TextBlock(label='Яндекс Карта', help_text="Код из конструктора Яндекс карт")
+    text = blocks.RichTextBlock(required=False, label='Произвольный текст')
+    show_address = blocks.BooleanBlock(required=False, label='Показывать адрес')
+    show_phone = blocks.BooleanBlock(required=False, label='Показывать телефон')
+    show_email = blocks.BooleanBlock(required=False, label='Показывать email')
+    show_work_time = blocks.BooleanBlock(required=False, label='Показывать время работы')
 
     class Meta:
         icon = "map"

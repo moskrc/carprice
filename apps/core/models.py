@@ -7,8 +7,8 @@ from wagtail.images.edit_handlers import ImageChooserPanel
 @register_setting
 class SiteSettings(BaseSetting):
     phone = models.CharField('Телефон', max_length=255, blank=True)
-    # address = models.CharField(
-    #     max_length=255, blank=True)
+    address = models.CharField(max_length=255, blank=True)
+    email = models.EmailField(blank=True)
     work_time = models.CharField('Время работы', max_length=255, blank=True)
     slogan_top = models.CharField('Слоган - верх', max_length=255, blank=True)
     slogan_bottom = models.CharField('Слоган - низ', max_length=255, blank=True)
@@ -34,6 +34,8 @@ class SiteSettings(BaseSetting):
         ImageChooserPanel("logo_top"),
         ImageChooserPanel("logo_bottom"),
         FieldPanel("phone"),
+        FieldPanel("email"),
+        FieldPanel("address"),
         FieldPanel("work_time"),
         FieldPanel("slogan_top"),
         FieldPanel("slogan_bottom"),

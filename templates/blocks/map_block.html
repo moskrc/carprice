@@ -10,21 +10,19 @@
 	<div class="block-map-wrapper__card-wrapper">
 		<div class="block-map-wrapper__card">
 
-{#				{% if self.show_city %}#}
-				<p class="city">
-					{{settings.core.SiteSettings.city|default:'Воронеж'}}
-				</p>
-{#				{% endif %}#}
+			<p class="city">
+				Воронеж
+			</p>
 
-{#			{% if self.show_address %}#}
+			{% if self.show_address %}
 				<p class="address">
-					{{settings.core.SiteSettings.address|default:'ул. Плехановская, д1'}}
+					{{settings.core.SiteSettings.address|default:'-'}}
 				</p>
-{#			{% endif %}#}
+			{% endif %}
 
 			{% if self.show_work_time %}
 				<p class="work-time">
-					{{settings.core.SiteSettings.work_time|default:'с 9.00 до 20.00 без выходных'}}
+					{{settings.core.SiteSettings.work_time|default:'-'}}
 				</p>
 			{% endif %}
 
@@ -36,13 +34,13 @@
 				</a>
 			{% endif %}
 
-{#			{% if self.show_email %}#}
+			{% if self.show_email %}
 			<a href="mailto:{{settings.core.SiteSettings.email|default:'info@car.ru'}}">
 				<p class="email">
 					{{settings.core.SiteSettings.email|default:'info@car.ru'}}
 				</p>
 			</a>
-{#			{% endif %}#}
+			{% endif %}
 
 			<p class="find-point d-block d-md-none btnAction" data-action="open-map">
 				Найти нас на карте
