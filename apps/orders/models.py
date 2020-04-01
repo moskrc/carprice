@@ -5,9 +5,12 @@ class Order(models.Model):
     """
     Заказ с форм
     """
-    car = models.CharField('Автмобиль', max_length=255)
+    brand = models.CharField('Марка', max_length=255, blank=True)
+    model = models.CharField('Модель', max_length=255, blank=True)
     year = models.CharField('Год выпуска', max_length=4, blank=True)
     phone = models.CharField('Телефон', max_length=255)
+    name = models.CharField('Имя', max_length=255, blank=True)
+    message = models.CharField('Комментарий', max_length=255, blank=True)
     created = models.DateTimeField(auto_now_add=True, blank=True)
 
     class Meta:

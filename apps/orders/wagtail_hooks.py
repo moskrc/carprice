@@ -11,9 +11,8 @@ class OrderModelAdmin(ModelAdmin):
     exclude_from_explorer = (
         False
     )
-    list_display = ("car", "phone", "year", "created")
-    list_filter = ("car", )
-    search_fields = ("car", "phone", "year", )
-
+    list_display = ("phone", "brand", "model", "year",  "name", "message", "created")
+    list_filter = ("brand", )
+    search_fields = ("name", "phone", "message", "brand", "model", "year" )
 
 modeladmin_register(OrderModelAdmin)

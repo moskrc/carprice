@@ -31,7 +31,6 @@ $(document).ready(function() {
 			data: formDataModal,
 			processData: false,
 			contentType: false,
-			headers: { 'Content-Type': 'multipart/form-data' },
 			xsrfCookieName: 'csrftoken',
 			xsrfHeaderName: 'X-CSRFToken',
 			success: function(result) {
@@ -64,7 +63,6 @@ $(document).ready(function() {
 			data: formDataMain,
 			processData: false,
 			contentType: false,
-			headers: { 'Content-Type': 'multipart/form-data' },
 			xsrfCookieName: 'csrftoken',
 			xsrfHeaderName: 'X-CSRFToken',
 			success: function(result) {
@@ -88,7 +86,6 @@ $(document).ready(function() {
 			data: formDataMain,
 			processData: false,
 			contentType: false,
-			headers: { 'Content-Type': 'multipart/form-data' },
 			xsrfCookieName: 'csrftoken',
 			xsrfHeaderName: 'X-CSRFToken',
 			success: function(result) {
@@ -106,7 +103,8 @@ $(document).ready(function() {
 		$("#callbackModal").modal("toggle");
 	});
 
-	$(".form-data-modal-callback").submit(function(e) {
+	$(".form-data-modal-callback").submit(function (e) {
+		e.preventDefault();
 		var formDataMain = new FormData($(".form-data-modal-callback")[0]);
 		$.ajax({
 			url: config.urlRequest,
@@ -115,7 +113,6 @@ $(document).ready(function() {
 			data: formDataMain,
 			processData: false,
 			contentType: false,
-			headers: {'Content-Type': 'multipart/form-data'},
 			xsrfCookieName: 'csrftoken',
 			xsrfHeaderName: 'X-CSRFToken',
 			success: function (result) {
