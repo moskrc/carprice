@@ -7,6 +7,7 @@ verify_ssl = true
 wagtail = "*"
 django-environ = "*"
 django-webpack-loader = "*"
+mysqlclient = "*"
 
 [requires]
 python_version = "3.7"
