@@ -20,7 +20,7 @@
 		<div class="row block-features-wrapper-list">
 			{% for c in self.features %}
 				<div class="col-12 col-md block-features-wrapper-list__item">
-					{% image c.image fill-80x80 as car_pic %}
+					{% image c.image fill-250x250 as car_pic %}
 					<img src="{{ car_pic.url }}" width="{{ car_pic.width }}" height="{{ car_pic.height }}" alt="{{ car_pic.alt }}"/>
 
 					<h3 class="title">{{c.title}}</h3>

@@ -1,9 +1,12 @@
 
 .block-cars-wrapper {
-	margin-bottom: 5rem;
+	padding-top: 5rem;
+	padding-bottom: 5rem;
+	background: $colorGreenVeryLight;
 
 	@media (min-width: $sizeMD) {
-		margin-bottom: 8rem;
+		padding-bottom: 8rem;
+		padding-top: 8rem;
 	}
 	&__header {
 		color: $colorGreyDark;

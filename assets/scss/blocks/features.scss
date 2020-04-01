@@ -22,10 +22,11 @@
 				height: auto;
 			}
 			& .title {
-				font-family: 'Muller Bold', sans-serif;
+				font-family: 'Muller Medium', sans-serif;
 				color: $colorGreenDefault;
 				font-size: 1.5rem;
 				line-height: 1.625rem;
+				letter-spacing: 0.02rem;
 				margin-bottom: 0.75rem;
 				@media (min-width: $sizeMD) {
 					margin-top: 2rem;

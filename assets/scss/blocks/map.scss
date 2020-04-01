@@ -9,6 +9,16 @@
 			transform: unset;
 		}
 	}
+	& > .container {
+			position: absolute;
+			left: 0;
+			right: 0;
+			top: 0;
+			bottom: 0;
+		@media (min-width: $sizeMD) {
+			position: unset;
+		}
+	}
 
 	&__card {
 		&-wrapper {
@@ -29,13 +39,9 @@
 
 				width: 20rem;
 			}
-			@media (min-width: $sizeLG) {
-				left: 9rem;
+			@media (min-width: $sizeFS) {
+				left: calc(50% - 30rem);
 			}
-			@media (min-width: $sizeXL) {
-				left: 20%;
-			}
-
 		}
 
 		background: $colorGreenVeryLight;

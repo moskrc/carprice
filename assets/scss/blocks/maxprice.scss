@@ -1,10 +1,10 @@
 .block-maxprice-wrapper {
 	background: $colorGreenDefault;
-	margin-bottom: 5rem;
-
-	@media (min-width: $sizeMD) {
-		margin-bottom: 8rem;
-	}
+	//margin-bottom: 5rem;
+	//
+	//@media (min-width: $sizeMD) {
+	//	margin-bottom: 8rem;
+	//}
 	&__header {
 		color: inherit;
 		font-family: 'PT Root UI Web Bold', sans-serif;
