@@ -46,6 +46,7 @@ jobs:
       - add_ssh_keys:
           fingerprints:
             - "ce:7a:e4:2f:be:b4:32:85:0b:ea:39:9a:9b:e0:5b:08"
+            - "85:22:15:0a:31:63:e9:4f:f4:72:e2:4e:5a:12:96:5b"
       - checkout
       - run:
           name: Prepare SSH
