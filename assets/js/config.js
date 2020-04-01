@@ -1,3 +1,3 @@
 export default {
-	urlRequest: " /orders/"
+	urlRequest: "/orders/"
 }
