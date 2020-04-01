@@ -1,0 +1,30 @@
+<p>Новое сообщение</p>
+
+<p><strong>Создано: {{order.created}}</strong></p>
+
+<table style="width: 100%; text-align: left;">
+<tr>
+    <th>Телефон</th>
+    <td>{{order.phone|default:'-'}}</td>
+</tr>
+<tr>
+    <th>Марка</th>
+    <td>{{order.brand|default:'-'}}</td>
+</tr>
+<tr>
+    <th>Модель</th>
+    <td>{{order.model|default:'-'}}</td>
+</tr>
+<tr>
+    <th>Год выпуска</th>
+    <td>{{order.year|default:'-'}}</td>
+</tr>
+<tr>
+    <th>Имя</th>
+    <td>{{order.name|default:'-'}}</td>
+</tr>
+<tr>
+    <th>Сообщение</th>
+    <td>{{order.message|default:'-'}}</td>
+</tr>
+</table>
