@@ -12,7 +12,6 @@ class OrderModelAdmin(ModelAdmin):
         False
     )
     list_display = ("phone", "brand", "model", "year",  "name", "message", "created")
-    list_filter = ("brand", )
     search_fields = ("name", "phone", "message", "brand", "model", "year" )
 
 modeladmin_register(OrderModelAdmin)
