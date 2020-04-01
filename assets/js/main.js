@@ -45,32 +45,37 @@ $(document).ready(function() {
 
 
 
-	$(".form-data-main").submit(function(e) {
+	$('.btnAction[data-action="send-form-data-main"]').click(function(e) {
 		e.preventDefault();
 		if (window.innerWidth < 1200) {
 			$("#requestModal").modal("toggle");
 		} else {
-			var formDataMain = new FormData($(".form-data-main")[0]);
-			$.ajax({
-				url: config.urlRequest,
-				type: "POST",
-				dataType: 'json',
-				data: formDataMain,
-				processData: false,
-				contentType: false,
-				headers: { 'Content-Type': 'multipart/form-data' },
-				xsrfCookieName: 'csrftoken',
-				xsrfHeaderName: 'X-CSRFToken',
-				success: function(result) {
-					$(".modal-form-is-send").fadeIn(0, () => {
-						$("#requestModal").modal("toggle");
-					});
-				},
-				error: function(xhr, resp, text) {
-					console.log(xhr, resp, text);
-				}
-			});
+			$(".form-data-main").submit();
 		}
+	});
+
+	$(".form-data-main").submit(function(e) {
+		e.preventDefault();
+		var formDataMain = new FormData($(".form-data-main")[0]);
+		$.ajax({
+			url: config.urlRequest,
+			type: "POST",
+			dataType: 'json',
+			data: formDataMain,
+			processData: false,
+			contentType: false,
+			headers: { 'Content-Type': 'multipart/form-data' },
+			xsrfCookieName: 'csrftoken',
+			xsrfHeaderName: 'X-CSRFToken',
+			success: function(result) {
+				$(".modal-form-is-send").fadeIn(0, () => {
+					$("#requestModal").modal("toggle");
+				});
+			},
+			error: function(xhr, resp, text) {
+				console.log(xhr, resp, text);
+			}
+		});
 	});
 
 	$(".form-data-check").submit(function(e) {
