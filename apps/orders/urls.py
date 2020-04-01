@@ -1,6 +1,7 @@
 from django.urls import path
+from django.views.decorators.csrf import csrf_exempt
 from . import api_views
 
 urlpatterns = [
-    path('', api_views.OrderViewSet.as_view({'post': 'create'})),
+    path('', csrf_exempt(api_views.OrderViewSet.as_view({'post': 'create'}))),
 ]
