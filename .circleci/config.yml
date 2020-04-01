@@ -66,12 +66,12 @@ jobs:
       - run:
           name: Deploy bundles
           command: |
-            scp -r assets/bundles moskrc@moskrc.myjino.ru:projects/carprice/assets
+            scp -r assets/bundles profitcar-vrn@profitcar-vrn.myjino.ru:projects/carprice/assets
 
       - run:
           name: Deploy via SSH
           command: |
-            ssh moskrc@moskrc.myjino.ru "bash -s" <  .circleci/deploy.sh
+            ssh profitcar-vrn@profitcar-vrn.myjino.ru "bash -s" <  .circleci/deploy.sh
 
 
 workflows:
