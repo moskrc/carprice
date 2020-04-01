@@ -1,7 +1,8 @@
 
 .block-steps {
 	&-wrapper {
-		margin-bottom: 5rem;
+		padding-bottom: 5rem;
+		background: $colorGreenVeryLight;
 	}
 	&__header {
 		color: $colorGreyDark;
@@ -17,11 +18,10 @@
 		//display: flex;
 		justify-content: space-between;
 		&__item {
-			padding: 0 2rem;
-			margin-bottom: 4rem;
+			margin: 0 0 4rem;
 
-			@media (min-width: $sizeLG) {
-				max-width: 22rem;
+			@media (min-width: $sizeFS) {
+				margin: 0 3rem 5rem;
 			}
 			& .number {
 				font-family: 'Roboto Bold', sans-serif;
@@ -36,12 +36,13 @@
 				}
 			}
 			& .title {
-				font-family: 'Muller Bold', sans-serif;
+				font-family: 'Muller Medium', sans-serif;
 				color: $colorGreenDefault;
 				font-size: 1.25rem;
 				line-height: 1.625rem;
 				margin-top: 0;
 				margin-bottom: 0.75rem;
+				letter-spacing: 0.02rem;
 				@media (min-width: $sizeMD) {
 					font-size: 1.5rem;
 				}

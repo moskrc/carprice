@@ -83,7 +83,7 @@
 		margin: 0;
 		position: relative;
 		margin-bottom: 1rem;
-
+		flex: 1;
 		@media (min-width: 992px) {
 			margin-bottom: 0;
 		}
@@ -128,11 +128,16 @@
 				border: none;
 				background-color: white;
 				color: $colorGreyDefault;
-				padding: 1.5rem 2rem 1.25rem;
+				//padding: 1.5rem 2rem 1.25rem;
+
+				padding: 1.5rem 0.5rem 1.25rem 1rem;
 				border-radius: 0;
 				&::placeholder {
 					color: $colorGreyDefault;
 				}
+			}
+			@media (min-width: 1025px) {
+				padding: 1.5rem 0.5rem 1.25rem 2rem;
 			}
 		}
 	}

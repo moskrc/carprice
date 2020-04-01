@@ -1,18 +1,21 @@
 .block-maxprice-wrapper {
 	background: $colorGreenDefault;
-	margin-bottom: 5rem;
-
-	@media (min-width: $sizeMD) {
-		margin-bottom: 8rem;
-	}
+	//margin-bottom: 5rem;
+	//
+	//@media (min-width: $sizeMD) {
+	//	margin-bottom: 8rem;
+	//}
 	&__header {
 		color: inherit;
 		font-family: 'PT Root UI Web Bold', sans-serif;
-		text-align: left;
+		text-align: center;
 		font-size: 1.75rem;
 		margin-bottom: 1rem;
 		@media (min-width: $sizeMD) {
 			font-size: 3.875rem;
+		}
+		@media (min-width: $sizeLG) {
+			text-align: left;
 		}
 	}
 	&__car {
@@ -33,6 +36,13 @@
 
 		.rich-text {
 			font-size: 0.875rem;
+			p {
+				text-align: center;
+
+				@media (min-width: $sizeLG) {
+					text-align: unset;
+				}
+			}
 			@media (min-width: 992px) {
 				font-size: 1rem;
 			}

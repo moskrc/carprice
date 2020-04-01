@@ -181,7 +181,7 @@ class MapBlock(blocks.StructBlock):
     """
 
     yandex_map = blocks.TextBlock(help_text="Код из конструктора Яндекс карт")
-    text = blocks.RichTextBlock()
+    text = blocks.RichTextBlock(required=False)
     show_phone = blocks.BooleanBlock(required=False)
     show_work_time = blocks.BooleanBlock(required=False)
 

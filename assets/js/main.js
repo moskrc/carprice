@@ -20,93 +20,105 @@ $(document).ready(function() {
 	});
 
 	// event send form data from model
-	$('.btnAction[data-action="send-form-data-modal"]').click(function(e) {
+	$(".form-data-modal").submit(function(e) {
 		e.preventDefault();
+
+		var formDataModal = new FormData($(".form-data-modal")[0]);
 		$.ajax({
 			url: config.urlRequest,
 			type: "POST",
 			dataType: 'json',
-			data: $(".form-data-modal").serialize(),
+			data: formDataModal,
+			processData: false,
+			contentType: false,
+			headers: { 'Content-Type': 'multipart/form-data' },
+			xsrfCookieName: 'csrftoken',
+			xsrfHeaderName: 'X-CSRFToken',
 			success: function(result) {
+				$(".modal-form-is-send").fadeIn();
 			},
 			error: function(xhr, resp, text) {
 				console.log(xhr, resp, text);
 			}
 		});
-
-		$(".modal-form-is-send").fadeIn();
 	});
 
-	$('.btnAction[data-action="send-form-data-main"]').click(function(e) {
+
+
+	$(".form-data-main").submit(function(e) {
 		e.preventDefault();
 		if (window.innerWidth < 1200) {
 			$("#requestModal").modal("toggle");
 		} else {
+			var formDataMain = new FormData($(".form-data-main")[0]);
 			$.ajax({
 				url: config.urlRequest,
 				type: "POST",
 				dataType: 'json',
-				data: $(".form-data-main").serialize(),
+				data: formDataMain,
+				processData: false,
+				contentType: false,
+				headers: { 'Content-Type': 'multipart/form-data' },
+				xsrfCookieName: 'csrftoken',
+				xsrfHeaderName: 'X-CSRFToken',
 				success: function(result) {
+					$(".modal-form-is-send").fadeIn(0, () => {
+						$("#requestModal").modal("toggle");
+					});
 				},
 				error: function(xhr, resp, text) {
 					console.log(xhr, resp, text);
 				}
 			});
-
-			$(".modal-form-is-send").fadeIn(0, () => {
-				$("#requestModal").modal("toggle");
-			});
 		}
 	});
 
-	$('.btnAction[data-action="send-form-data-check"]').click(function(e) {
+	$(".form-data-check").submit(function(e) {
 		e.preventDefault();
+		var formDataMain = new FormData($(".form-data-check")[0]);
 		$.ajax({
 			url: config.urlRequest,
 			type: "POST",
 			dataType: 'json',
-			data: $(".form-data-check").serialize(),
+			data: formDataMain,
+			processData: false,
+			contentType: false,
+			headers: { 'Content-Type': 'multipart/form-data' },
+			xsrfCookieName: 'csrftoken',
+			xsrfHeaderName: 'X-CSRFToken',
 			success: function(result) {
+				$(".modal-form-is-send").fadeIn(0, () => {
+					$("#requestModal").modal("toggle");
+				});
 			},
 			error: function(xhr, resp, text) {
 				console.log(xhr, resp, text);
 			}
 		});
-
-		$(".modal-form-is-send").fadeIn(0, () => {
-			$("#requestModal").modal("toggle");
-		});
 	});
-
-
-
-
 
 	$('.btnAction[data-action="open-callback-form"]').click(function(e) {
 		$("#callbackModal").modal("toggle");
 	});
 
-
-	$('.btnAction[data-action="send-form-data-modal-callback"]').click(function(e) {
-		e.preventDefault();
+	$(".form-data-modal-callback").submit(function(e) {
+		var formDataMain = new FormData($(".form-data-modal-callback")[0]);
 		$.ajax({
 			url: config.urlRequest,
 			type: "POST",
 			dataType: 'json',
-			data: $(".form-data-modal-callback").serialize(),
-			success: function(result) {
-			// *
+			data: formDataMain,
+			processData: false,
+			contentType: false,
+			headers: {'Content-Type': 'multipart/form-data'},
+			xsrfCookieName: 'csrftoken',
+			xsrfHeaderName: 'X-CSRFToken',
+			success: function (result) {
+				$(".modal-form-is-send").fadeIn();
 			},
-			error: function(xhr, resp, text) {
+			error: function (xhr, resp, text) {
 				console.log(xhr, resp, text);
 			}
 		});
-		// *
-		$(".modal-form-is-send").fadeIn();
 	});
-
-
-	console.log(navigator.userAgent)
-
 });
