@@ -9,4 +9,4 @@ def send_email(subject, template_file, context, to_email, from_email=None):
 
     msg = EmailMultiAlternatives(subject, text_body, from_email, to_email)
     msg.attach_alternative(html_body, "text/html")
-    msg.send(fail_silently=True)
+    msg.send(fail_silently=False)

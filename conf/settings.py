@@ -39,10 +39,16 @@ USE_TZ = env("USE_TZ", default=True)
 # -----------------------------------------------------------------------------
 # Emails
 # -----------------------------------------------------------------------------
-DEFAULT_FROM_EMAIL = env("DEFAULT_FROM_EMAIL", default="")
 EMAIL_BACKEND = env(
     "EMAIL_BACKEND", default="django.core.mail.backends.smtp.EmailBackend"
 )
+EMAIL_HOST = env("EMAIL_HOST", default="localhost")
+EMAIL_HOST_USER = env("EMAIL_HOST_USER", default="user")
+EMAIL_HOST_PASSWORD = env("EMAIL_HOST_PASSWORD", default="")
+EMAIL_PORT = env("EMAIL_PORT", default=587)
+EMAIL_USE_TLS = env("EMAIL_USE_TLS", default=True)
+DEFAULT_FROM_EMAIL = env("DEFAULT_FROM_EMAIL", default="")
+
 
 # -----------------------------------------------------------------------------
 # Security and Users
@@ -154,4 +160,4 @@ WAGTAILIMAGES_MAX_IMAGE_PIXELS = 128000000  # i.e. 128 megapixels
 
 # Base URL to use when referring to full URLs within the Wagtail admin backend -
 # e.g. in notification emails. Don't include '/admin' or a trailing slash
-BASE_URL = "http://example.com"
+BASE_URL = "https://profitcar-vrn.ru"

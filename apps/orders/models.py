@@ -38,6 +38,5 @@ def send_new_order(sender, **kwargs):
         subject="Новое сообщение",
         template_file="orders/email/new_order.html",
         context={"order": instance},
-        to_email=emails,
-        from_email=project_settings.email
+        to_email=emails
     )
