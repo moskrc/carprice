@@ -1,0 +1,38 @@
+<h1>Новая заявка</h1>
+
+<p>
+    <a href="https://profitcar-vrn.ru/">profitcar-vrn.ru</a>
+<p>
+
+<p><strong>Создано: {{order.created}}</strong></p>
+
+<table style="width: 200px; text-align: left;">
+<tr>
+    <th>Телефон</th>
+    <td>{{order.phone|default:'-'}}</td>
+</tr>
+<tr>
+    <th>Марка</th>
+    <td>{{order.brand|default:'-'}}</td>
+</tr>
+<tr>
+    <th>Модель</th>
+    <td>{{order.model|default:'-'}}</td>
+</tr>
+<tr>
+    <th>Год выпуска</th>
+    <td>{{order.year|default:'-'}}</td>
+</tr>
+<tr>
+    <th>Имя</th>
+    <td>{{order.name|default:'-'}}</td>
+</tr>
+<tr>
+    <th>Сообщение</th>
+    <td>{{order.message|default:'-'}}</td>
+</tr>
+</table>
+
+<p>
+    <a href='https://profitcar-vrn.ru/admin/orders/order/'>Перейти к полному списку сообщений</a>
+</p>
