@@ -172,4 +172,12 @@ $(document).ready(function() {
 			parseInt($(this).attr("data-open-slider-number"), 10)
 		);
 	});
+
+
+
+
+	var sUsrAg = navigator.userAgent;
+	if (sUsrAg.indexOf("Safari") > -1) {
+		$('.triagle').hide();
+	}
 });
