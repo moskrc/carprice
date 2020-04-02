@@ -5,7 +5,48 @@
 import Aos from "aos";
 Aos.init();
 
+import PhotoSwipe from "photoswipe";
+import PhotoSwipeUI_Default from "photoswipe/dist/photoswipe-ui-default";
+
 import config from "./config";
+
+
+
+var openPhotoSwipe = function(num = -1) {
+	var pswpElement = document.querySelectorAll('.pswp')[0];
+	var options = {
+		// history & focus options are disabled on CodePen
+		index: num,
+		history: false,
+		focus: false,
+
+		getThumbBoundsFn: function(index) {
+			console.log(index)
+			// find thumbnail element
+			var thumbnail = document.querySelectorAll('.block-cars-wrapper-list__item')[index];
+
+			// get window scroll Y
+			var pageYScroll = window.pageYOffset || document.documentElement.scrollTop;
+			var rect = thumbnail.getBoundingClientRect();
+			console.log({
+				x:rect.left,
+				y:rect.top + pageYScroll,
+				w:rect.width
+			})
+			return {
+				x:rect.left,
+				y:rect.top + pageYScroll,
+				w:rect.width
+			};
+		}
+	};
+	var gallery = new PhotoSwipe( pswpElement, PhotoSwipeUI_Default, carSlidesWithPictures, options);
+	gallery.init();
+};
+
+// document.getElementById('btn').onclick = openPhotoSwipe;
+
+
 
 $(document).ready(function() {
 	// modal map
@@ -27,12 +68,12 @@ $(document).ready(function() {
 		$.ajax({
 			url: config.urlRequest,
 			type: "POST",
-			dataType: 'json',
+			dataType: "json",
 			data: formDataModal,
 			processData: false,
 			contentType: false,
-			xsrfCookieName: 'csrftoken',
-			xsrfHeaderName: 'X-CSRFToken',
+			xsrfCookieName: "csrftoken",
+			xsrfHeaderName: "X-CSRFToken",
 			success: function(result) {
 				$(".modal-form-is-send").fadeIn();
 			},
@@ -41,8 +82,6 @@ $(document).ready(function() {
 			}
 		});
 	});
-
-
 
 	$('.btnAction[data-action="send-form-data-main"]').click(function(e) {
 		e.preventDefault();
@@ -59,12 +98,12 @@ $(document).ready(function() {
 		$.ajax({
 			url: config.urlRequest,
 			type: "POST",
-			dataType: 'json',
+			dataType: "json",
 			data: formDataMain,
 			processData: false,
 			contentType: false,
-			xsrfCookieName: 'csrftoken',
-			xsrfHeaderName: 'X-CSRFToken',
+			xsrfCookieName: "csrftoken",
+			xsrfHeaderName: "X-CSRFToken",
 			success: function(result) {
 				$(".modal-form-is-send").fadeIn(0, () => {
 					$("#requestModal").modal("toggle");
@@ -82,12 +121,12 @@ $(document).ready(function() {
 		$.ajax({
 			url: config.urlRequest,
 			type: "POST",
-			dataType: 'json',
+			dataType: "json",
 			data: formDataMain,
 			processData: false,
 			contentType: false,
-			xsrfCookieName: 'csrftoken',
-			xsrfHeaderName: 'X-CSRFToken',
+			xsrfCookieName: "csrftoken",
+			xsrfHeaderName: "X-CSRFToken",
 			success: function(result) {
 				$(".modal-form-is-send").fadeIn(0, () => {
 					$("#requestModal").modal("toggle");
@@ -103,24 +142,34 @@ $(document).ready(function() {
 		$("#callbackModal").modal("toggle");
 	});
 
-	$(".form-data-modal-callback").submit(function (e) {
+	$(".form-data-modal-callback").submit(function(e) {
 		e.preventDefault();
 		var formDataMain = new FormData($(".form-data-modal-callback")[0]);
 		$.ajax({
 			url: config.urlRequest,
 			type: "POST",
-			dataType: 'json',
+			dataType: "json",
 			data: formDataMain,
 			processData: false,
 			contentType: false,
-			xsrfCookieName: 'csrftoken',
-			xsrfHeaderName: 'X-CSRFToken',
-			success: function (result) {
+			xsrfCookieName: "csrftoken",
+			xsrfHeaderName: "X-CSRFToken",
+			success: function(result) {
 				$(".modal-form-is-send").fadeIn();
 			},
-			error: function (xhr, resp, text) {
+			error: function(xhr, resp, text) {
 				console.log(xhr, resp, text);
 			}
 		});
+	});
+
+	$('.btnAction[data-open-slider="true"]').click(function(e) {
+		// $("#modalSliderCars").modal("show");
+		// $("#carouselCars").carousel(
+		// 	parseInt($(this).attr("data-open-slider-number"), 10)
+		// );
+		openPhotoSwipe(
+			parseInt($(this).attr("data-open-slider-number"), 10)
+		);
 	});
 });

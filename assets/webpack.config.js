@@ -101,7 +101,7 @@ module.exports = (env, argv) => {
 				},
 				// Images
 				{
-					test: /\.(png|svg|jpg)(\?v=[0-9.]+)?$/,
+					test: /\.(png|svg|jpg|gif)(\?v=[0-9.]+)?$/,
 					loader: "file-loader",
 					options: {
 						outputPath: "images"
