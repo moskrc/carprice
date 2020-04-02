@@ -178,6 +178,21 @@ $(document).ready(function() {
 
 	var sUsrAg = navigator.userAgent;
 	if (sUsrAg.indexOf("Safari") > -1) {
+	}
+
+	if (sUsrAg.indexOf("Firefox") > -1) {
+
+	} else if (sUsrAg.indexOf("Opera") > -1) {
+
+	} else if (sUsrAg.indexOf("Trident") > -1) {
+
+	} else if (sUsrAg.indexOf("Edge") > -1) {
+
+	} else if (sUsrAg.indexOf("Chrome") > -1) {
+
+	} else if (sUsrAg.indexOf("Safari") > -1) {
 		$('.triagle').hide();
+	} else {
+
 	}
 });
