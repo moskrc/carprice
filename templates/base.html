@@ -23,6 +23,14 @@
         {% block extra_css %}
             {# Override this in templates to add extra stylesheets #}
         {% endblock %}
+
+				{% block favicon %}
+					<link rel="shortcut icon" href="{% static 'img/favicon/favicon_16.png' %}" type="image/png">
+					<link href="{% static 'img/favicon/favicon_16.png' %}" rel="apple-touch-icon apple-touch-icon-precomposed">
+					<link href="{% static 'img/favicon/favicon_32.png' %}" rel="apple-touch-icon apple-touch-icon-precomposed" sizes="32x32">
+					<link href="{% static 'img/favicon/favicon_48.png' %}" rel="apple-touch-icon apple-touch-icon-precomposed" sizes="48x48">
+					<link href="{% static 'img/favicon/favicon_64.png' %}" rel="apple-touch-icon apple-touch-icon-precomposed" sizes="64x64">
+				{% endblock %}
     </head>
 
     <body class="{% block body_class %}{% endblock %}">
