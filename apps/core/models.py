@@ -2,7 +2,8 @@ from django.db import models
 from wagtail.contrib.settings.models import BaseSetting, register_setting
 from wagtail.admin.edit_handlers import FieldPanel, MultiFieldPanel
 from wagtail.images.edit_handlers import ImageChooserPanel
-
+from wagtailcache.cache import clear_cache
+from wagtail.core import hooks
 
 @register_setting
 class SiteSettings(BaseSetting):
@@ -60,3 +61,11 @@ class SiteSettings(BaseSetting):
             [FieldPanel("new_order_emails"),], heading="Уведомление о новых сообщениях",
         ),
     ]
+
+
+@hooks.register('after_create_page')
+@hooks.register('after_edit_page')
+def clear_wagtailcache(request, page):
+    if page.live:
+        print('XXX')
+        clear_cache()

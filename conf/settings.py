@@ -75,6 +75,7 @@ INSTALLED_APPS = [
     "django.contrib.contenttypes",
     "django.contrib.messages",
     "django.contrib.sessions",
+    "django.contrib.sitemaps",
     "django.contrib.staticfiles",
     "modelcluster",
     "taggit",
@@ -90,10 +91,12 @@ INSTALLED_APPS = [
     "wagtail.sites",
     "wagtail.snippets",
     "wagtail.users",
+    "wagtailcache",
     "webpack_loader",
 ]
 
 MIDDLEWARE = [
+    "wagtailcache.cache.UpdateCacheMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
@@ -103,6 +106,7 @@ MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     "wagtail.core.middleware.SiteMiddleware",
     "wagtail.contrib.redirects.middleware.RedirectMiddleware",
+    "wagtailcache.cache.FetchFromCacheMiddleware"
 ]
 
 TEMPLATES = [
@@ -125,6 +129,20 @@ TEMPLATES = [
 # -----------------------------------------------------------------------------
 # Static & Media Files
 # -----------------------------------------------------------------------------
+
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
+        'LOCATION': os.path.join(BASE_DIR, 'cache'),
+        'KEY_PREFIX': 'wagtailcache',
+        'TIMEOUT': 3600, # one hour (in seconds)
+    }
+}
+
+# -----------------------------------------------------------------------------
+# Static & Media Files
+# -----------------------------------------------------------------------------
+
 STATIC_URL = env("STATIC_URL", default="/static/")
 STATIC_ROOT = env("STATIC_ROOT", default=root_path("static"))
 

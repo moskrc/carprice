@@ -8,6 +8,7 @@ wagtail = "*"
 django-environ = "*"
 django-webpack-loader = "*"
 mysqlclient = "*"
+wagtail-cache = "*"
 
 [requires]
 python_version = "3.7"

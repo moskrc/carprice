@@ -5,6 +5,7 @@ __pycache__
 # Django dynamic directories
 logs
 media
+cache
 
 # Database files
 *.sqlite3
