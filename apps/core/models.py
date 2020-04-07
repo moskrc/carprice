@@ -36,6 +36,7 @@ class SiteSettings(BaseSetting):
         related_name="+",
         verbose_name="Логотип - низ",
     )
+    extra_js = models.TextField("Внешние скрипты", blank=True)
 
     panels = [
         MultiFieldPanel(
@@ -60,12 +61,22 @@ class SiteSettings(BaseSetting):
         MultiFieldPanel(
             [FieldPanel("new_order_emails"),], heading="Уведомление о новых сообщениях",
         ),
+        MultiFieldPanel(
+            [
+                FieldPanel("extra_js"),
+            ],
+            heading="Дополнительно",
+        ),
+
     ]
+
+    class Meta:
+        verbose_name = 'Настройка сайта'
+        verbose_name_plural = 'Настройки сайта'
 
 
 @hooks.register('after_create_page')
 @hooks.register('after_edit_page')
 def clear_wagtailcache(request, page):
     if page.live:
-        print('XXX')
         clear_cache()
