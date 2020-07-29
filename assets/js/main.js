@@ -12,7 +12,7 @@ import config from "./config";
 
 
 
-var openPhotoSwipe = function(num = -1) {
+var openPhotoSwipe = function (num = -1) {
 	var pswpElement = document.querySelectorAll('.pswp')[0];
 	var options = {
 		// history & focus options are disabled on CodePen
@@ -20,7 +20,7 @@ var openPhotoSwipe = function(num = -1) {
 		history: false,
 		focus: false,
 
-		getThumbBoundsFn: function(index) {
+		getThumbBoundsFn: function (index) {
 			console.log(index)
 			// find thumbnail element
 			var thumbnail = document.querySelectorAll('.block-cars-wrapper-list__item')[index];
@@ -29,18 +29,18 @@ var openPhotoSwipe = function(num = -1) {
 			var pageYScroll = window.pageYOffset || document.documentElement.scrollTop;
 			var rect = thumbnail.getBoundingClientRect();
 			console.log({
-				x:rect.left,
-				y:rect.top + pageYScroll,
-				w:rect.width
+				x: rect.left,
+				y: rect.top + pageYScroll,
+				w: rect.width
 			})
 			return {
-				x:rect.left,
-				y:rect.top + pageYScroll,
-				w:rect.width
+				x: rect.left,
+				y: rect.top + pageYScroll,
+				w: rect.width
 			};
 		}
 	};
-	var gallery = new PhotoSwipe( pswpElement, PhotoSwipeUI_Default, carSlidesWithPictures, options);
+	var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, carSlidesWithPictures, options);
 	gallery.init();
 };
 
@@ -48,21 +48,24 @@ var openPhotoSwipe = function(num = -1) {
 
 
 
-$(document).ready(function() {
+$(document).ready(function () {
 	// modal map
-	$('.btnAction[data-action="open-map"]').click(function(e) {
+	$('.btnAction[data-action="open-map"]').click(function (e) {
 		$("#map-modal").modal("toggle");
 	});
 
 	// hook for close modal
-	$(".modal").on("hidden.bs.modal", function(e) {
+	$(".modal").on("hidden.bs.modal", function (e) {
 		$(".modal-form-is-send").fadeOut();
 		$("form").trigger("reset");
 	});
 
 	// event send form data from model
-	$(".form-data-modal").submit(function(e) {
+	$(".form-data-modal").submit(function (e) {
 		e.preventDefault();
+
+		var sbm = $("input[type='submit'], button[type='submit']")
+		sbm.prop('disabled', true);
 
 		var formDataModal = new FormData($(".form-data-modal")[0]);
 		$.ajax({
@@ -74,16 +77,24 @@ $(document).ready(function() {
 			contentType: false,
 			xsrfCookieName: "csrftoken",
 			xsrfHeaderName: "X-CSRFToken",
-			success: function(result) {
+			success: function (result) {
 				$(".modal-form-is-send").fadeIn();
+				sbm.prop('disabled', false);
 			},
-			error: function(xhr, resp, text) {
+			error: function (xhr, resp, text) {
+				var $el = $('.form-data-modal input[name="phone"]')
+				var originalColor = $el.css("color");
+				$el.css("color", "red");
+				setTimeout(function () {
+					$el.css("color", originalColor);
+					sbm.prop('disabled', false);
+				}, 1000);
 				console.log(xhr, resp, text);
 			}
 		});
 	});
 
-	$('.btnAction[data-action="send-form-data-main"]').click(function(e) {
+	$('.btnAction[data-action="send-form-data-main"]').click(function (e) {
 		e.preventDefault();
 		if (window.innerWidth < 1200) {
 			$("#requestModal").modal("toggle");
@@ -92,8 +103,10 @@ $(document).ready(function() {
 		}
 	});
 
-	$(".form-data-main").submit(function(e) {
+	$(".form-data-main").submit(function (e) {
 		e.preventDefault();
+		var sbm = $("input[type='submit'], button[type='submit']")
+		sbm.prop('disabled', true);
 		var formDataMain = new FormData($(".form-data-main")[0]);
 		$.ajax({
 			url: config.urlRequest,
@@ -104,19 +117,29 @@ $(document).ready(function() {
 			contentType: false,
 			xsrfCookieName: "csrftoken",
 			xsrfHeaderName: "X-CSRFToken",
-			success: function(result) {
+			success: function (result) {
+				sbm.prop('disabled', false);
 				$(".modal-form-is-send").fadeIn(0, () => {
 					$("#requestModal").modal("toggle");
 				});
 			},
-			error: function(xhr, resp, text) {
+			error: function (xhr, resp, text) {
+				var $el = $('.form-data-main input[name="phone"]')
+				var originalColor = $el.css("color");
+				$el.css("color", "red");
+				setTimeout(function () {
+					$el.css("color", originalColor);
+					sbm.prop('disabled', false);
+				}, 1000);
 				console.log(xhr, resp, text);
 			}
 		});
 	});
 
-	$(".form-data-check").submit(function(e) {
+	$(".form-data-check").submit(function (e) {
 		e.preventDefault();
+		var sbm = $("input[type='submit'], button[type='submit']")
+		sbm.prop('disabled', true);
 		var formDataMain = new FormData($(".form-data-check")[0]);
 		$.ajax({
 			url: config.urlRequest,
@@ -127,23 +150,33 @@ $(document).ready(function() {
 			contentType: false,
 			xsrfCookieName: "csrftoken",
 			xsrfHeaderName: "X-CSRFToken",
-			success: function(result) {
+			success: function (result) {
 				$(".modal-form-is-send").fadeIn(0, () => {
+					sbm.prop('disabled', false);
 					$("#requestModal").modal("toggle");
 				});
 			},
-			error: function(xhr, resp, text) {
+			error: function (xhr, resp, text) {
+				var $el = $('.form-data-check input[name="phone"]')
+				var originalColor = $el.css("color");
+				$el.css("color", "red");
+				setTimeout(function () {
+					$el.css("color", originalColor);
+					sbm.prop('disabled', false);
+				}, 1000);
 				console.log(xhr, resp, text);
 			}
 		});
 	});
 
-	$('.btnAction[data-action="open-callback-form"]').click(function(e) {
+	$('.btnAction[data-action="open-callback-form"]').click(function (e) {
 		$("#callbackModal").modal("toggle");
 	});
 
-	$(".form-data-modal-callback").submit(function(e) {
+	$(".form-data-modal-callback").submit(function (e) {
 		e.preventDefault();
+		var sbm = $("input[type='submit'], button[type='submit']")
+		sbm.prop('disabled', true);
 		var formDataMain = new FormData($(".form-data-modal-callback")[0]);
 		$.ajax({
 			url: config.urlRequest,
@@ -154,16 +187,24 @@ $(document).ready(function() {
 			contentType: false,
 			xsrfCookieName: "csrftoken",
 			xsrfHeaderName: "X-CSRFToken",
-			success: function(result) {
+			success: function (result) {
 				$(".modal-form-is-send").fadeIn();
+				sbm.prop('disabled', false);
 			},
-			error: function(xhr, resp, text) {
+			error: function (xhr, resp, text) {
+				var $el = $('.form-data-modal-callback input[name="phone"]')
+				var originalColor = $el.css("color");
+				$el.css("color", "red");
+				setTimeout(function () {
+					$el.css("color", originalColor);
+					sbm.prop('disabled', false);
+				}, 1000);
 				console.log(xhr, resp, text);
 			}
 		});
 	});
 
-	$('.btnAction[data-open-slider="true"]').click(function(e) {
+	$('.btnAction[data-open-slider="true"]').click(function (e) {
 		// $("#modalSliderCars").modal("show");
 		// $("#carouselCars").carousel(
 		// 	parseInt($(this).attr("data-open-slider-number"), 10)
@@ -177,8 +218,7 @@ $(document).ready(function() {
 
 
 	var sUsrAg = navigator.userAgent;
-	if (sUsrAg.indexOf("Safari") > -1) {
-	}
+	if (sUsrAg.indexOf("Safari") > -1) {}
 
 	if (sUsrAg.indexOf("Firefox") > -1) {
 
