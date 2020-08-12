@@ -9,6 +9,11 @@ class OrderSerializer(serializers.ModelSerializer):
         model = Order
         fields = ["id", "name", "phone", "message", "brand", "model", "year"]
 
+    def validate_brand(self, value):
+        if not value:
+            raise serializers.ValidationError("Brand is required")
+        return value
+
     def validate_phone(self, value):
         """
         Check that phone number in post
