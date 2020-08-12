@@ -68,6 +68,10 @@ $(document).ready(function () {
 		sbm.prop('disabled', true);
 
 		var formDataModal = new FormData($(".form-data-modal")[0]);
+
+		var $el = $('.form-data-modal input[name="phone"]')
+		var originalColor = $el.css("color");
+
 		$.ajax({
 			url: config.urlRequest,
 			type: "POST",
@@ -78,15 +82,13 @@ $(document).ready(function () {
 			xsrfCookieName: "csrftoken",
 			xsrfHeaderName: "X-CSRFToken",
 			success: function (result) {
+				$el.css("color", '#626262');
 				$(".modal-form-is-send").fadeIn();
 				sbm.prop('disabled', false);
 			},
 			error: function (xhr, resp, text) {
-				var $el = $('.form-data-modal input[name="phone"]')
-				var originalColor = $el.css("color");
 				$el.css("color", "red");
 				setTimeout(function () {
-					$el.css("color", originalColor);
 					sbm.prop('disabled', false);
 				}, 1000);
 				console.log(xhr, resp, text);
@@ -108,6 +110,9 @@ $(document).ready(function () {
 		var sbm = $("input[type='submit'], button[type='submit']")
 		sbm.prop('disabled', true);
 		var formDataMain = new FormData($(".form-data-main")[0]);
+		var $el = $('.form-data-main input[name="phone"]')
+		var originalColor = $el.css("color");
+
 		$.ajax({
 			url: config.urlRequest,
 			type: "POST",
@@ -118,17 +123,15 @@ $(document).ready(function () {
 			xsrfCookieName: "csrftoken",
 			xsrfHeaderName: "X-CSRFToken",
 			success: function (result) {
+				$el.css("color", '#626262');
 				sbm.prop('disabled', false);
 				$(".modal-form-is-send").fadeIn(0, () => {
 					$("#requestModal").modal("toggle");
 				});
 			},
 			error: function (xhr, resp, text) {
-				var $el = $('.form-data-main input[name="phone"]')
-				var originalColor = $el.css("color");
 				$el.css("color", "red");
 				setTimeout(function () {
-					$el.css("color", originalColor);
 					sbm.prop('disabled', false);
 				}, 1000);
 				console.log(xhr, resp, text);
@@ -141,6 +144,9 @@ $(document).ready(function () {
 		var sbm = $("input[type='submit'], button[type='submit']")
 		sbm.prop('disabled', true);
 		var formDataMain = new FormData($(".form-data-check")[0]);
+		var $el = $('.form-data-check input[name="phone"]')
+		var originalColor = $el.css("color");
+
 		$.ajax({
 			url: config.urlRequest,
 			type: "POST",
@@ -151,17 +157,15 @@ $(document).ready(function () {
 			xsrfCookieName: "csrftoken",
 			xsrfHeaderName: "X-CSRFToken",
 			success: function (result) {
+				$el.css("color", '#626262');
 				$(".modal-form-is-send").fadeIn(0, () => {
 					sbm.prop('disabled', false);
 					$("#requestModal").modal("toggle");
 				});
 			},
 			error: function (xhr, resp, text) {
-				var $el = $('.form-data-check input[name="phone"]')
-				var originalColor = $el.css("color");
 				$el.css("color", "red");
 				setTimeout(function () {
-					$el.css("color", originalColor);
 					sbm.prop('disabled', false);
 				}, 1000);
 				console.log(xhr, resp, text);
@@ -178,6 +182,9 @@ $(document).ready(function () {
 		var sbm = $("input[type='submit'], button[type='submit']")
 		sbm.prop('disabled', true);
 		var formDataMain = new FormData($(".form-data-modal-callback")[0]);
+		var $el = $('.form-data-modal-callback input[name="phone"]')
+		var originalColor = $el.css("color");
+
 		$.ajax({
 			url: config.urlRequest,
 			type: "POST",
@@ -188,15 +195,13 @@ $(document).ready(function () {
 			xsrfCookieName: "csrftoken",
 			xsrfHeaderName: "X-CSRFToken",
 			success: function (result) {
+				$el.css("color", '#626262');
 				$(".modal-form-is-send").fadeIn();
 				sbm.prop('disabled', false);
 			},
 			error: function (xhr, resp, text) {
-				var $el = $('.form-data-modal-callback input[name="phone"]')
-				var originalColor = $el.css("color");
 				$el.css("color", "red");
 				setTimeout(function () {
-					$el.css("color", originalColor);
 					sbm.prop('disabled', false);
 				}, 1000);
 				console.log(xhr, resp, text);
