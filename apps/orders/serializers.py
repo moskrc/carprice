@@ -26,4 +26,12 @@ class OrderSerializer(serializers.ModelSerializer):
         if not phone_re.match(value):
             raise serializers.ValidationError("Number is not valid")
 
-        return value
+        cleared_value = value.replace('-', '').replace('(', '').replace(')', '').replace(' ', '')
+
+        if not cleared_value.startswith('+'):
+            cleared_value = '+' + cleared_value
+
+        if cleared_value[1] == '8':
+            cleared_value = '+7' + cleared_value[2:]
+
+        return cleared_value
